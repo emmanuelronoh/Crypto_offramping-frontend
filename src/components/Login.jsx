@@ -23,16 +23,18 @@ const Login = ({ setIsLoggedIn }) => {
       });
 
       if (response.status === 200) {
-        const token = response.data.token;
+        const { token, user } = response.data; // Ensure API sends user details
         
         if (rememberMe) {
           localStorage.setItem("token", token);
+          localStorage.setItem("user", JSON.stringify(user)); // Store user details
         } else {
           sessionStorage.setItem("token", token);
+          sessionStorage.setItem("user", JSON.stringify(user));
         }
 
-        setIsLoggedIn(true); // Update the login state
-        navigate("/transfer-portal"); // Redirect to dashboard
+        setIsLoggedIn(true); 
+        navigate("/transfer-portal"); 
       }
     } catch (err) {
       setError(err.response?.data?.error || "Something went wrong. Please try again.");
