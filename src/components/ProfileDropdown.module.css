@@ -1,0 +1,131 @@
+/* Default Dark Mode Styles */
+:root {
+    --profile-icon-color: #5f6368;
+    --profile-icon-hover-color: #202124;
+    --dropdown-bg: white;
+    --dropdown-box-shadow: rgba(0, 0, 0, 0.15);
+    --dropdown-header-bg: #f8f9fa;
+    --dropdown-header-border: #ddd;
+    --user-name-color: #202124;
+    --user-email-color: #5f6368;
+    --dropdown-link-color: #202124;
+    --dropdown-link-hover-bg: #f1f3f4;
+    --logout-btn-hover-bg: #f1f3f4;
+    --logout-btn-text-color: #202124;
+}
+
+@media (prefers-color-scheme: light) {
+    /* Light Mode Styles */
+    :root {
+        --profile-icon-color: #202124;
+        --profile-icon-hover-color: #5f6368;
+        --dropdown-bg: #ffffff;
+        --dropdown-box-shadow: rgba(0, 0, 0, 0.1);
+        --dropdown-header-bg: #f8f9fa;
+        --dropdown-header-border: #ddd;
+        --user-name-color: #0d021f;
+        --user-email-color: #5f6368;
+        --dropdown-link-color: #202124;
+        --dropdown-link-hover-bg: #eaeaea;
+        --logout-btn-hover-bg: #eaeaea;
+        --logout-btn-text-color: #202124;
+    }
+}
+
+/* Profile Menu */
+.profileMenu {
+    display: inline-block;
+    top: 10px; /* Adjust based on your header */
+    right: 10px;
+    z-index: 1000;
+}
+
+.profileIcon {
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--profile-icon-color);
+    transition: color 0.3s ease-in-out;
+}
+
+.profileIcon:hover {
+    color: var(--profile-icon-hover-color);
+}
+
+/* Dropdown Menu */
+.dropdownMenu {
+    position: absolute;
+    right: 0;
+    top: 50px; /* Ensures it appears below the icon */
+    width: 280px;
+    background: var(--dropdown-bg);
+    box-shadow: 0 4px 10px var(--dropdown-box-shadow);
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 1000;
+    padding: 12px 0;
+}
+
+/* Profile Header inside the Dropdown */
+.profileHeader {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: var(--dropdown-header-bg);
+    border-bottom: 1px solid var(--dropdown-header-border);
+}
+
+.profileImage {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.userName {
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--user-name-color);
+}
+
+.userEmail {
+    font-size: 13px;
+    color: var(--user-email-color);
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: #ddd;
+    margin: 8px 0;
+}
+
+/* Links inside Dropdown */
+.dropdownMenu a,
+.logoutBtn {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: var(--dropdown-link-color);
+    font-size: 14px;
+    transition: background 0.3s ease-in-out;
+}
+
+.dropdownMenu a:hover,
+.logoutBtn:hover {
+    background: var(--dropdown-link-hover-bg);
+}
+
+/* Logout Button */
+.logoutBtn {
+    width: 100%;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+    padding: 12px;
+    color: var(--logout-btn-text-color);
+}
+
+.logoutBtn:hover {
+    background: var(--logout-btn-hover-bg);
+}

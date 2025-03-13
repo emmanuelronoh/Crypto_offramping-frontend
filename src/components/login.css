@@ -1,0 +1,187 @@
+/* Default Dark Mode Styles */
+:root {
+  --background-color: #0d081a;
+  --login-box-bg: #0f0e2b;
+  --border-color: #24024580;
+  --text-color: white;
+  --title-color: white;
+  --subtitle-color: #b3b3b3;
+  --input-bg: #0d081a;
+  --input-border: #555;
+  --input-focus-border: #a855f7;
+  --button-bg: #a855f7;
+  --button-hover-bg: #9333ea;
+  --forgot-password-color: #a855f7;
+  --link-color: #a855f7;
+  --input-placeholder-color: #ded4d4;
+}
+
+/* Light Mode Styles */
+@media (prefers-color-scheme: light) {
+  :root {
+      --background-color: #ffffff;
+      --login-box-bg: #f4f4f4;
+      --border-color: #ccc;
+      --text-color: black;
+      --title-color: #0d021f;
+      --subtitle-color: #555;
+      --input-bg: #ffffff;
+      --input-border: #ccc;
+      --input-focus-border: #8000ff;
+      --button-bg: #8000ff;
+      --button-hover-bg: #4c00cc;
+      --forgot-password-color: #8000ff;
+      --link-color: #8000ff;
+      --input-placeholder-color: #333;
+  }
+}
+
+/* Background */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Login Box */
+.login-box {
+  background-color: var(--login-box-bg);
+  padding: 30px;
+  border-radius: 10px;
+  width: 320px;
+  text-align: center;
+  border: 2px solid var(--border-color);
+  margin-top: 50px;
+}
+
+/* Title & Subtitle */
+.title {
+  color: var(--title-color);
+  font-size: 22px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: left;
+  padding: 2px;
+  padding-top: 5px;
+  color: var(--subtitle-color);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* Align checkbox & text properly */
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--input-placeholder-color);
+  font-size: 12px;
+}
+
+.remember-me input {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+}
+
+/* Labels & Inputs */
+label {
+  display: block;
+  text-align: left;
+  color: var(--text-color);
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Inputs & Button */
+input {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  color: var(--text-color);
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--input-focus-border);
+}
+
+/* Options (Remember Me & Forgot Password) */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  color: var(--subtitle-color);
+}
+
+.forgot-password {
+  color: var(--forgot-password-color);
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Login Button */
+.login-button {
+  width: 100%;
+  background: var(--button-bg);
+  color: var(--text-color);
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background: var(--button-hover-bg);
+}
+
+/* Signup Text */
+.signup-text {
+  color: var(--subtitle-color);
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.signup-link {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+.login-box::-webkit-scrollbar {
+  width: 5px;
+}
+
+.login-box::-webkit-scrollbar-thumb {
+  background: var(--button-bg);
+  border-radius: 5px;
+}
+
+.login-box::-webkit-scrollbar-track {
+  background: var(--background-color);
+}

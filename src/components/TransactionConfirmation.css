@@ -1,0 +1,138 @@
+/* General Styling */
+.transaction-container {
+    background-color: #0b071f;
+    color: #ffffff;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Title Styling */
+.transaction-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.transaction-subtitle {
+    font-size: 14px;
+    color: #cccccc;
+}
+
+/* Transaction Box */
+.transaction-box {
+    background-color: #150b2c;
+    border-radius: 10px;
+    padding: 30px;
+    width: 40%;
+    max-width: 500px;  /* Prevents it from being too large on bigger screens */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Icon Styling */
+.transaction-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Processing Text */
+.processing-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.processing-subtitle {
+    font-size: 14px;
+    color: #aaaaaa;
+    margin-bottom: 15px;
+}
+
+/* Transaction Details */
+.transaction-details {
+    background-color: #120b2b;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    width: 90%;
+    margin: auto;
+}
+
+.transaction-details p {
+    font-size: 14px;
+    line-height: 1.8;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.transaction-details p:last-child {
+    border-bottom: none;
+}
+
+/* Status Text */
+.status-processing {
+    color: #d4af37;
+    font-weight: bold;
+}
+
+/* Footer */
+.transaction-footer {
+    background-color: rgba(255, 215, 0, 0.2);
+    color: #d4af37;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 1024px) {
+    .transaction-box {
+        width: 60%; /* Adjust for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .transaction-box {
+        width: 80%; /* Adjust for smaller tablets */
+    }
+
+    .transaction-title {
+        font-size: 20px;
+    }
+
+    .processing-title {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .transaction-box {
+        width: 90%; /* Full width on small devices */
+        padding: 20px;
+    }
+
+    .transaction-title {
+        font-size: 18px;
+    }
+
+    .processing-title {
+        font-size: 16px;
+    }
+
+    .transaction-details p {
+        font-size: 12px;
+    }
+
+    .transaction-footer {
+        font-size: 10px;
+        padding: 8px;
+    }
+}

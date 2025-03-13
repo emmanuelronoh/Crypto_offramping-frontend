@@ -1,0 +1,63 @@
+/* Default Dark Mode Styles */
+:root {
+    --settings-bg: #0d021f;
+    --settings-text-color: #fff;
+    --settings-header-color: #3357ff;
+    --settings-item-color: #ffcc00;
+    --box-shadow-color: rgba(67, 44, 112, 0.282);
+}
+
+@media (prefers-color-scheme: light) {
+    /* Light Mode Styles */
+    :root {
+        --settings-bg: #ffffff;
+        --settings-text-color: #202124;
+        --settings-header-color: #0d021f;
+        --settings-item-color: #ff9800;
+        --box-shadow-color: rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Settings Container */
+.settings-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: var(--settings-bg);
+    color: var(--settings-text-color);
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px var(--box-shadow-color);
+    text-align: center;
+}
+
+/* Settings Header */
+.settings-container h2 {
+    margin-bottom: 15px;
+    color: var(--settings-header-color);
+}
+
+/* Setting Item */
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.setting-item input {
+    cursor: pointer;
+}
+
+/* Info Text */
+.info {
+    font-size: 14px;
+    margin-top: 15px;
+    color: var(--settings-item-color);
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background: #1b1b2f;
+    color: #fff;
+}

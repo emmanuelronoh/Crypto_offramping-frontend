@@ -1,0 +1,91 @@
+.send-money-wrapper {
+    background-color: #0d0c1d;
+    color: #fff;
+    padding: 2rem;
+  }
+  
+  .progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    background: #444;
+    color: #bbb;
+    font-weight: bold;
+  }
+  
+  .completed {
+    background: #6a00ff;
+    color: white;
+  }
+  
+  .active {
+    background: #a855f7;
+    color: white;
+  }
+  
+  .step-text {
+    font-size: 14px;
+    color: #aaa;
+  }
+  
+  .crypto-section, .transaction-details, .confirmation-message {
+    background: #19182a;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .copy-button {
+    background: #6a00ff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .copy-button:hover {
+    background: #a855f7;
+  }
+  
+  .warning-text {
+    color: #ffcc00;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .back-button {
+    background: transparent;
+    color: #a855f7;
+    border: 1px solid #a855f7;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .send-button {
+    background: #6a00ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .send-button:hover {
+    background: #a855f7;
+  }
+  

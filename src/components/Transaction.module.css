@@ -1,0 +1,420 @@
+/* General Styles */
+.container {
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+}
+
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+  .container {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .searchBar {
+    background-color: #f0f0f0;
+    border: 1px solid #cccccc;
+    color: #000000;
+  }
+
+
+  .actionMenu {
+    background-color: #ffffff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .actionMenu button {
+    color: #000000;
+  }
+
+  .actionMenu button:hover {
+    background-color: #f0f0f0;
+  }
+
+  .filterButton {
+    background-color: #e0e0e0;
+    color: #000000;
+  }
+
+  .filterButton.active {
+    background-color: #5a3ea1;
+    color: #ffffff;
+  }
+
+  .table {
+    background-color: #f0f0f0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .table th {
+    background-color: #e0e0e0;
+    color: #000000;
+  }
+
+  .table tr:nth-child(even) {
+    background-color: #f5f5f5;
+  }
+
+  .table tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+
+  .status.completed {
+    background-color: #008000;
+    color: #ffffff;
+  }
+
+  .status.pending {
+    background-color: #6a5a3e;
+    color: #d4af37;
+  }
+
+  .status.failed {
+    background-color: #8b0000;
+    color: #ffffff;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .container {
+    background-color: #0b071f;
+    color: #ffffff;
+  }
+
+  .searchBar {
+    background-color: #120b2b;
+    border: 1px solid #323c48;
+    color: #ffffff;
+  }
+
+  .timeFilter {
+    background-color: #1c152b;
+    border: 1px solid #5a3ea1;
+    color: #ffffff;
+  }
+
+  .actionMenu {
+    background-color: #0b071f;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .actionMenu button {
+    color: #ffffff;
+  }
+
+  .actionMenu button:hover {
+    background-color: #1c152b;
+  }
+
+  .filterButton {
+    background-color: #1c152b;
+    color: #b0a8d1;
+  }
+
+  .filterButton.active {
+    background-color: #5a3ea1;
+    color: #ffffff;
+  }
+
+  .table {
+    background-color: #120b2b;
+    border: 1px solid rgba(128, 0, 128, 0.3);
+    box-shadow: 0px 0px 10px rgba(128, 0, 128, 0.3);
+  }
+
+  .table th {
+    background-color: #0e081f;
+    color: #ffffff;
+  }
+
+  .table tr:nth-child(even) {
+    background-color: #18102d;
+  }
+
+  .table tr:nth-child(odd) {
+    background-color: #120b2b;
+  }
+
+  .status.completed {
+    background-color: #008000;
+    color: #ffffff;
+  }
+
+  .status.pending {
+    background-color: #6a5a3e;
+    color: #d4af37;
+  }
+
+  .status.failed {
+    background-color: #8b0000;
+    color: #ffffff;
+  }
+}
+
+/* Titles */
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #b0a8d1;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+/* Search and Filters */
+.filtersWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  flex: 1;
+}
+
+.searchBar {
+  padding: 12px 40px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 250px;
+  font-size: 14px;
+  outline: none;
+}
+
+.searchWrapper i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #b0a8d1;
+}
+
+
+
+/* Action Buttons */
+.actionWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.actionButton {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.actionMenu {
+  top: 40px;
+  right: 0;
+  border-radius: 5px;
+  width: 160px;
+  z-index: 1000;
+  display: none;
+}
+
+.actionMenu.active {
+  display: block;
+}
+
+.actionMenu button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Filter Buttons */
+.filterButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: left;
+  margin-bottom: 20px;
+}
+
+.filterButton {
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.filterButton.active {
+  background-color: #5a3ea1;
+  color: #ffffff;
+}
+
+/* Make Table Scrollable Without Scrollbar */
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  white-space: nowrap; /* Prevents text wrapping */
+  -ms-overflow-style: none;  /* Hides scrollbar in Edge & IE */
+  scrollbar-width: none;  /* Hides scrollbar in Firefox */
+}
+
+.tableWrapper::-webkit-scrollbar {
+  display: none; /* Hides scrollbar in Chrome & Safari */
+}
+
+/* Responsive: Small Screens */
+@media (max-width: 768px) {
+  .tableWrapper {
+    overflow-x: auto;
+  }
+
+  .table {
+    width: 800px; /* Ensures the table remains scrollable */
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+/* Status Badges */
+.status {
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Small screens (Tablets) */
+@media (max-width: 768px) {
+  .filtersWrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .searchBar {
+    width: 100%;
+  }
+
+  .timeFilter {
+    width: 100%;
+    text-align: center;
+  }
+
+  .filterButtons {
+    justify-content: center;
+  }
+
+  .table th, .table td {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .actionButton {
+    font-size: 16px;
+  }
+
+  .actionMenu {
+    width: 140px;
+  }
+}
+
+/* Mobile screens (Phones) */
+@media (max-width: 480px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .filtersWrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .searchWrapper {
+    width: 100%;
+  }
+
+  .searchBar {
+    width: 100%;
+    font-size: 13px;
+    padding: 10px 35px;
+  }
+
+  .timeFilter {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .filterButtons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .filterButton {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .tableWrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .table {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .table th, .table td {
+    padding: 8px;
+  }
+
+  .status {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+
+  .actionButton {
+    font-size: 14px;
+  }
+
+  .actionMenu {
+    width: 130px;
+  }
+
+  .actionMenu button {
+    font-size: 12px;
+    padding: 8px;
+  }
+}

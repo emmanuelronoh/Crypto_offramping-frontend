@@ -1,0 +1,125 @@
+/* Default Dark Mode Styles */
+:root {
+    --profile-bg: rgba(13, 2, 31, 0.8); /* Glassmorphism effect */
+    --profile-text-color: #fff;
+    --profile-header-color: #8a6eff;
+    --box-shadow-color: rgba(138, 110, 255, 0.4);
+    --border-color: rgba(255, 255, 255, 0.2);
+    --glass-blur: blur(10px);
+    --gradient: linear-gradient(135deg, rgba(20, 10, 40, 0.9), rgba(5, 0, 20, 0.7));
+}
+
+/* Light Mode Styles */
+@media (prefers-color-scheme: light) {
+    :root {
+        --profile-bg: rgba(255, 255, 255, 0.8);
+        --profile-text-color: #202124;
+        --profile-header-color: #4a00e0;
+        --box-shadow-color: rgba(0, 0, 0, 0.1);
+        --border-color: rgba(0, 0, 0, 0.1);
+        --glass-blur: blur(8px);
+        --gradient: linear-gradient(135deg, rgba(240, 240, 250, 0.9), rgba(220, 220, 240, 0.8));
+    }
+}
+
+/* Profile Container */
+.profile-container {
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 25px;
+    background: var(--profile-bg);
+    color: var(--profile-text-color);
+    border-radius: 15px;
+    box-shadow: 0px 6px 15px var(--box-shadow-color);
+    text-align: center;
+    border: 1px solid var(--border-color);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Subtle Gradient Overlay */
+.profile-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient);
+    z-index: -1;
+    border-radius: inherit;
+}
+
+/* Profile Header */
+.profile-container h2 {
+    margin-bottom: 20px;
+    color: var(--profile-header-color);
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+/* Profile Details */
+.profile-details p {
+    font-size: 16px;
+    margin: 12px 0;
+    line-height: 1.6;
+    word-wrap: break-word;
+    transition: 0.2s ease-in-out;
+    font-weight: 500;
+}
+
+.profile-details strong {
+    color: var(--);
+    font-weight: bold;
+}
+
+/* Add Hover Effects */
+.profile-container:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 8px 20px var(--box-shadow-color);
+}
+
+/* Button Styling */
+button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: var(--profile-header-color);
+    color: white;
+    transition: 0.3s ease-in-out;
+}
+
+button:hover {
+    color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .profile-container {
+        padding: 20px;
+        max-width: 95%;
+    }
+
+    .profile-container h2 {
+        font-size: 22px;
+    }
+
+    .profile-details p {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+}
