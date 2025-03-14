@@ -1,0 +1,150 @@
+/* Define CSS Variables for Light & Dark Modes */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333;
+  --card-bg: #f9f9f9;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --unread-bg: linear-gradient(120deg, #bbdefb, #64b5f6);
+  --read-bg: #f1f1f1;
+  --hover-bg: #c8e6c9;
+  --footer-bg: #2c3e50;
+  --footer-text: white;
+}
+
+/* Dark Mode Styles */
+@media (prefers-color-scheme: dark) {
+  :root {
+      --bg-color: #181818;
+      --text-color: #f1f1f1;
+      --card-bg: #242424;
+      --shadow-color: rgba(255, 255, 255, 0.1);
+      --unread-bg: linear-gradient(120deg, #64b5f6, #2196f3);
+      --read-bg: #3a3a3a;
+      --hover-bg: #388e3c;
+      --footer-bg: #1c1c1c;
+      --footer-text: #ddd;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Apply a full-page flexbox to keep the footer at the bottom */
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease-in-out;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+.notifications-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.notifications-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--card-bg);
+  box-shadow: 0 4px 12px var(--shadow-color);
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+
+/* Title Styling */
+.notifications-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Loading & Error Messages */
+.loading-text, .error-text {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.loading-text {
+  color: #007bff;
+}
+
+.error-text {
+  color: red;
+}
+
+/* No Notifications */
+.no-notifications {
+  text-align: center;
+  font-size: 30px;
+  color: gray;
+  font-style: italic;
+}
+
+/* Notifications List */
+.notifications-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Individual Notification Item */
+.notification-item {
+  padding: 15px;
+  margin: 8px 0;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.2s, background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Unread Notification */
+.notification-item.unread {
+  background: var(--unread-bg);
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+/* Read Notification */
+.notification-item.read {
+  background: var(--read-bg);
+  color: var(--text-color);
+}
+
+/* Hover Effect */
+.notification-item:hover {
+  transform: translateY(-2px);
+  background: var(--hover-bg);
+}
+
+/* Footer Styling */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  width: 100%;
+  margin-top: auto;
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+}

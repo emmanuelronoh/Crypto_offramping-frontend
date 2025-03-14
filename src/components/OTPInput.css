@@ -1,0 +1,74 @@
+/* General Styles */
+.otp-container {
+    text-align: center;
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    width: 320px;
+    margin: 20px auto;
+    color: #fff;
+}
+
+/* OTP Inputs */
+.otp-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.otp-input {
+    width: 40px;
+    height: 50px;
+    font-size: 22px;
+    text-align: center;
+    border: 2px solid #00adb5;
+    border-radius: 5px;
+    background: #333;
+    color: #fff;
+    outline: none;
+    transition: 0.3s;
+}
+
+.otp-input:focus {
+    border-color: #ff5722;
+}
+
+/* Verify Button */
+.verify-btn {
+    background: #00adb5;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.verify-btn:hover {
+    background: #ff5722;
+}
+
+/* Back Button Styling */
+.back-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.back-icon {
+    font-size: 28px; /* Increase icon size */
+}
+
+.back-button:hover {
+    color: #007bff;
+}

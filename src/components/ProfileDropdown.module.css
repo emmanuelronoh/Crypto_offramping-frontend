@@ -2,13 +2,13 @@
 :root {
     --profile-icon-color: #5f6368;
     --profile-icon-hover-color: #202124;
-    --dropdown-bg: white;
+    --dropdown-bg: #0f0e2b;
     --dropdown-box-shadow: rgba(0, 0, 0, 0.15);
-    --dropdown-header-bg: #f8f9fa;
+    --dropdown-header-bg: #0f0e2b;
     --dropdown-header-border: #ddd;
     --user-name-color: #202124;
     --user-email-color: #5f6368;
-    --dropdown-link-color: #202124;
+    --dropdown-link-color: #8709de;
     --dropdown-link-hover-bg: #f1f3f4;
     --logout-btn-hover-bg: #f1f3f4;
     --logout-btn-text-color: #202124;

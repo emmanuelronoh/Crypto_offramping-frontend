@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaBell } from "react-icons/fa"; 
 import ProfileDropdown from "./ProfileDropdown"; 
 import styles from "./Header.module.css";
-import logo from "../assets/logo.png";
 
 const Header = ({ isLoggedIn, setIsLoggedIn }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,9 +24,8 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
     closeMenu();
   };
 
-  // Function to handle logo click redirection
   const handleLogoClick = (e) => {
-    e.preventDefault(); // Prevent default <Link> behavior
+    e.preventDefault(); 
     navigate(isLoggedIn ? "/transfer-portal" : "/");
   };
 
@@ -53,7 +51,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
               <Link to="/transactions" className={styles.navLink} onClick={closeMenu}>
                 Dashboard
               </Link>
-              <Link to="/send-money" className={styles.navLink} onClick={closeMenu}>
+              <Link to="/transfer-portal" className={styles.navLink} onClick={closeMenu}>
                 Send Money
               </Link>
               <Link to="/transactions" className={styles.navLink} onClick={closeMenu}>
@@ -75,7 +73,9 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
         {/* Icons for Logged-In Users */}
         {isLoggedIn && (
           <div className={styles.icons}>
-            <FaBell className={`${styles.icon} ${styles.notificationIcon}`} />
+            <Link to="/notifications">
+              <FaBell className={`${styles.icon} ${styles.notificationIcon}`} />
+            </Link>
             <ProfileDropdown handleLogout={handleLogout} />
           </div>
         )}

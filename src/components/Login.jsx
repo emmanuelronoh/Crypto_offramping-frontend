@@ -28,9 +28,11 @@ const Login = ({ setIsLoggedIn }) => {
         if (rememberMe) {
           localStorage.setItem("token", token);
           localStorage.setItem("user", JSON.stringify(user)); // Store user details
+          localStorage.setItem("email", user.email);
         } else {
           sessionStorage.setItem("token", token);
           sessionStorage.setItem("user", JSON.stringify(user));
+          sessionStorage.setItem("email", user.email);
         }
 
         setIsLoggedIn(true); 

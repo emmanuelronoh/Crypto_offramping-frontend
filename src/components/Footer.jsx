@@ -1,12 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import axios from "axios";
 import "./Footer.css";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    setMessage(""); // Clear previous messages
+
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/notifications/",
+        { message: `New newsletter subscription: ${email}` }, // Custom notification
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${localStorage.getItem("token") || sessionStorage.getItem("token")}`, // Ensure authentication
+          },
+        }
+      );
+
+      if (response.status === 201) {
+        setMessage("Subscribed successfully! 🎉");
+        setEmail(""); // Clear input field
+      }
+    } catch (error) {
+      setMessage("Failed to subscribe. Please try again.");
+    }
+  };
+
   return (
     <footer className="footer">
       <div className="footer-container">
-        
         {/* Brand Section */}
         <div className="footer-brand">
           <h2>MyCompany</h2>
@@ -46,8 +74,15 @@ const Footer = () => {
         {/* Newsletter Subscription */}
         <div className="footer-newsletter">
           <h3>Subscribe to Our Newsletter</h3>
-          <form>
-            <input type="email" placeholder="Enter your email" required />
+          {message && <p className="message">{message}</p>} {/* Display message */}
+          <form onSubmit={handleSubscribe}>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
             <button type="submit">Subscribe</button>
           </form>
         </div>
