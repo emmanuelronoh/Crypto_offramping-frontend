@@ -4,7 +4,7 @@
     color: #ffffff;
     text-align: center;
     font-family: "Poppins", sans-serif;
-    padding: 20px;
+    padding: 2vw; /* Adjust padding dynamically */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -14,42 +14,33 @@
 
 /* Title Styling */
 .transaction-title {
-    font-size: 24px;
+    font-size: 2rem;  /* Relative font size */
     font-weight: bold;
 }
 
 .transaction-subtitle {
-    font-size: 14px;
+    font-size: 1rem;  /* More responsive */
     color: #cccccc;
 }
 
 /* Transaction Box */
 .transaction-box {
-    background-color: #150b2c;
+    background-color: #1a063a;
     border-radius: 10px;
-    padding: 30px;
-    width: 40%;
-    max-width: 500px;  /* Prevents it from being too large on bigger screens */
+    padding: 3vw;
+    max-width: 90vw; /* Adjust width dynamically */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
 
-/* Icon Styling */
-.transaction-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
 /* Processing Text */
 .processing-title {
-    font-size: 20px;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
 .processing-subtitle {
-    font-size: 14px;
+    font-size: 1rem;
     color: #aaaaaa;
     margin-bottom: 15px;
 }
@@ -57,82 +48,92 @@
 /* Transaction Details */
 .transaction-details {
     background-color: #120b2b;
-    padding: 15px;
+    padding: 2vw;
     border-radius: 8px;
+    max-width: 600px; /* Limits width on larger screens */
+    margin-left: auto;
     text-align: left;
-    width: 90%;
-    margin: auto;
 }
 
-.transaction-details p {
-    font-size: 14px;
-    line-height: 1.8;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.details-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding-bottom: 5px;
-    margin-bottom: 5px;
 }
 
-.transaction-details p:last-child {
-    border-bottom: none;
+/* Transaction Info Grid */
+.transaction-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Keeps two columns */
+    gap: 10px;
+    font-size: 1rem;
+}
+
+/* Adjust Text Size for Smaller Screens */
+@media (max-width: 768px) {
+    .transaction-title {
+        font-size: 1.8rem;
+    }
+
+    .processing-title {
+        font-size: 1.3rem;
+    }
+
+    .details-title {
+        font-size: 1.1rem;
+    }
+
+    .transaction-info {
+        grid-template-columns: 1fr 1fr; /* Keep two columns */
+        font-size: 0.9rem; /* Slightly smaller */
+    }
+}
+
+@media (max-width: 300px) {
+    .transaction-title {
+        font-size: 1.5rem;
+    }
+
+    .processing-title {
+        font-size: 1.2rem;
+    }
+
+    .details-title {
+        font-size: 1rem;
+    }
+
+    .transaction-info {
+        grid-template-columns: auto; /* Stack labels & values */
+        font-size: 0.85rem;
+    }
+
+    .label, .value {
+        text-align: left;
+    }
 }
 
 /* Status Text */
 .status-processing {
     color: #d4af37;
     font-weight: bold;
+    font-size: 1rem;
+}
+
+.status-success {
+    color: #28a745;
+    font-weight: bold;
+    font-size: 1rem;
 }
 
 /* Footer */
 .transaction-footer {
     background-color: rgba(255, 215, 0, 0.2);
     color: #d4af37;
-    padding: 10px;
+    padding: 1vw;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 0.8rem;
     margin-top: 15px;
-}
-
-/* 📱 Responsive Design */
-@media (max-width: 1024px) {
-    .transaction-box {
-        width: 60%; /* Adjust for tablets */
-    }
-}
-
-@media (max-width: 768px) {
-    .transaction-box {
-        width: 80%; /* Adjust for smaller tablets */
-    }
-
-    .transaction-title {
-        font-size: 20px;
-    }
-
-    .processing-title {
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 480px) {
-    .transaction-box {
-        width: 90%; /* Full width on small devices */
-        padding: 20px;
-    }
-
-    .transaction-title {
-        font-size: 18px;
-    }
-
-    .processing-title {
-        font-size: 16px;
-    }
-
-    .transaction-details p {
-        font-size: 12px;
-    }
-
-    .transaction-footer {
-        font-size: 10px;
-        padding: 8px;
-    }
 }

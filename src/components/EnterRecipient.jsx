@@ -1,70 +1,100 @@
 import React from "react";
 import "./EnterRecipient.css";
+import { FaQrcode } from "react-icons/fa";
+import { FaClipboard } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
-function EnterRecipient() {
+const SendMoney = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="send-money-wrapper">
-      <div className="send-money">
-        {/* Progress Bar */}
-        <div className="progress-container">
-          <div className="step completed">1</div>
-          <div className="step active">2</div>
-          <div className="step">3</div>
-          <span className="step-text">Step 2 of 3</span>
-        </div>
-
-        <h1 className="title">Send Money</h1>
+    <>
+      {/* Header Section - Outside the Card */}
+      <div className="header-section">
+        <h2 className="title">Send Money</h2>
         <p className="subtitle">Convert crypto to mobile money in a few simple steps</p>
+
+        {/* Progress Steps */}
+        <div className="progress">
+          <div className="step-container">
+            <span className="step active">1</span>
+            <div className="line active"></div>
+          </div>
+          <div className="step-container">
+            <span className="step active">2</span>
+            <div className="line"></div>
+          </div>
+          <div className="step-container">
+            <span className="step">3</span>
+          </div>
+          <span className="step-text">Step 3 of 3</span>
+        </div>
       </div>
 
-      <div className="send-money-container">
-        {/* Crypto Section */}
-        <div className="card crypto-section">
-          <h2>Send Crypto</h2>
-          <p>Choose the cryptocurrency and amount you want to send.</p>
-          <div className="address-box">
-            <span className="crypto-amount">Send 20 BTC to:</span>
-            <div className="address-container">
-              <span className="address">bc1qxy2kgdyxja</span>
-              <button className="copy-button">Copy Address</button>
-            </div>
-          </div>
-        </div>
-
-        {/* Transaction Details */}
-        <div className="card transaction-details">
-          <h3>Transaction Details</h3>
-          <div className="detail-item">
-            <span>Amount:</span>
-            <span>20 BTC</span>
-          </div>
-          <div className="detail-item">
-            <span>Recipient Currency:</span>
-            <span>M-Pesa</span>
-          </div>
-          <div className="detail-item">
-            <span>Estimated Value:</span>
-            <span>$13,000,000.00</span>
-          </div>
-        </div>
-
-        {/* Confirmation Message */}
-        <div className="card confirmation-message">
-          <p className="warning-text">
-            Please wait for at least 1 confirmation before proceeding to the next step.
+      {/* Content Card - Starts Below the Header */}
+      <div className="container">
+        {/* Recipient Details Card */}
+        <div className="card">
+          <h3 className="section-title">Recipient Details</h3>
+          <p>Enter the recipient mobile money information</p>
+          <p className="btc-info">
+            Send <strong>0.23 BTC</strong> to
+            <span className="rate">1 BTC = 65,000 KES</span>
           </p>
+
+          <div className="address-box">1FfmbHfnpaZjKFvyi1okTjJJusN455paPH</div>
+
+          <div className="buttons">
+            <button className="btn">
+              <FaClipboard /> Copy Address
+            </button>
+            <button className="btn">
+              <FaQrcode /> Show QR Scan
+            </button>
+          </div>
+        </div>
+
+        {/* Transaction Summary Card */}
+        <div className="card transaction-summary">
+          <h3 className="section-title">Transaction Summary</h3>
+
+          <div className="summary-row">
+            <span className="summary-label">Amount:</span>
+            <span className="summary-value">20 BTC</span>
+          </div>
+
+          <div className="summary-row">
+            <span className="summary-label">Recipient:</span>
+            <span className="summary-value">Not specified</span>
+          </div>
+
+          <div className="summary-row">
+            <span className="summary-label">Phone Number:</span>
+            <span className="summary-value">Not specified</span>
+          </div>
+
+          <div className="summary-row">
+            <span className="summary-label">Mobile Money:</span>
+            <span className="summary-value">M-Pesa</span>
+          </div>
+        </div>
+
+        {/* Warning Message */}
+        <div className="warning">
+          Please wait for at least 1 confirmation before proceeding to the next step
         </div>
 
         {/* Action Buttons */}
-        <div className="action-buttons">
-          <button className="back-button">Back</button>
-          <button className="send-button">
-            I've Sent the Crypto <span className="arrow">→</span>
+        <div className="actions">
+        <button className="btn back" onClick={() => navigate("/transfer-portal")}>
+            Back
           </button>
+          <button className="btn complete" onClick={() => navigate("/transaction-confirmation")}>
+          Complete Transfer ➜</button>
         </div>
       </div>
-    </div>
+    </>
   );
-}
+};
 
-export default EnterRecipient;
+export default SendMoney;

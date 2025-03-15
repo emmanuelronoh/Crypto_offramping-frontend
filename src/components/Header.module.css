@@ -54,8 +54,16 @@
   width: auto;
   cursor: pointer;
   color: var(--logo-color);
-  margin-left: 70px;
+  margin-left: 70px; /* Default for larger screens */
 }
+
+/* Remove margin on small screens */
+@media (max-width: 768px) {
+  .logoImg {
+    margin-left: 0; /* Removes margin on small screens */
+  }
+}
+
 
 /* Navigation & Icons Wrapper */
 .navRight {

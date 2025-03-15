@@ -1,91 +1,273 @@
-.send-money-wrapper {
-    background-color: #0d0c1d;
-    color: #fff;
-    padding: 2rem;
+/* General Styles */
+.container {
+  max-width: 500px; /* Changed from fixed width to max-width */
+  width: 90%; /* Allows better responsiveness */
+  padding: 20px;
+  background-color: #120f31;
+  border-radius: 10px;
+  margin-top: 20px; /* Reduced margin */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #bbb;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Progress Bar */
+.progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+  flex-wrap: wrap; /* Allows wrapping in smaller screens */
+}
+
+.step-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.step {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.line {
+  width: 80px; /* Adjusted for responsiveness */
+  height: 5px;
+  background-color: #888;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/* Card Styling */
+.card {
+  background-color: #0d1028;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+.btc-info {
+  display: flex;
+  justify-content: space-between; /* Ensures both elements stay on the same line */
+  align-items: center;
+  flex-wrap: wrap; /* Allows wrapping if space is too small */
+}
+
+.rate {
+  font-size: 12px;
+  color: #888;
+  margin-left: auto; /* Pushes it to the right while staying responsive */
+  text-align: right;
+}
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 480px) {
+  .btc-info {
+    flex-direction: column; /* Stacks elements vertically on small screens */
+    align-items: flex-start;
   }
-  
-  .progress-container {
-    display: flex;
+
+  .rate {
+    margin-left: 0; /* Reset margin for smaller screens */
+    text-align: left;
+    font-size: 10px; /* Reduce font size for better readability */
+  }
+}
+
+
+
+
+.address-box {
+  background-color: #293b4f;
+  padding: 8px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  word-break: break-all; /* Ensures long text wraps */
+  overflow-wrap: break-word; /* Alternative for better wrapping */
+  max-width: 100%; /* Prevents it from overflowing */
+  box-sizing: border-box; /* Ensures padding doesn't make it overflow */
+}
+
+@media screen and (max-width: 480px) {
+  .address-box {
+    font-size: 12px; /* Reduces font size on small screens */
+    padding: 5px; /* Less padding for small screens */
+  }
+}
+
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap; /* Ensures buttons don't overflow */
+  justify-content: center;
+}
+
+.btn {
+  background-color: #635caa;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; /* Adds space between icon and text */
+}
+
+.btn:hover {
+  background-color: #7d00b5;
+}
+
+/* Transaction Summary */
+.transaction-summary {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.summary-label {
+  font-weight: normal;
+}
+
+.summary-value {
+  font-weight: bold;
+  text-align: right;
+}
+
+/* Warning Message */
+.warning {
+  background-color: #272526;
+  color: #8a8a35;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between; /* Pushes buttons to opposite corners */
+  margin-top: 10px;
+  padding: 0 15px; /* Ensures buttons are inside the card with spacing */
+}
+
+.back {
+  background-color: #6a1b9a;
+  padding: 10px 20px;
+}
+
+.complete {
+  background-color: #6a1b9a;
+  padding: 10px 20px;
+  margin-left: 150px;
+}
+
+/* ✅ Responsive Design */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .progress {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .line {
+    width: 60px;
+  }
+
+  .buttons {
+    flex-direction: column;
     align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .actions {
+    flex-direction: column;
     gap: 10px;
-    margin-bottom: 20px;
+    align-items: center;
   }
-  
+
+  .complete {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .title {
+    font-size: 18px;
+  }
+
   .step {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    text-align: center;
-    background: #444;
-    color: #bbb;
-    font-weight: bold;
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
   }
-  
-  .completed {
-    background: #6a00ff;
-    color: white;
+
+  .line {
+    width: 40px;
   }
-  
-  .active {
-    background: #a855f7;
-    color: white;
+
+  .buttons {
+    flex-direction: column;
   }
-  
-  .step-text {
-    font-size: 14px;
-    color: #aaa;
+
+  .btn {
+    width: 100%;
   }
-  
-  .crypto-section, .transaction-details, .confirmation-message {
-    background: #19182a;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
-  
-  .copy-button {
-    background: #6a00ff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .copy-button:hover {
-    background: #a855f7;
-  }
-  
-  .warning-text {
-    color: #ffcc00;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  .action-buttons {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .back-button {
-    background: transparent;
-    color: #a855f7;
-    border: 1px solid #a855f7;
-    padding: 10px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .send-button {
-    background: #6a00ff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .send-button:hover {
-    background: #a855f7;
-  }
-  
+}

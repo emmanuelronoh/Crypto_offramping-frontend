@@ -89,7 +89,7 @@ button {
 .start {
   background: var(--highlight-color);
   color: white;
-  margin-right: 10px;
+  margin-right: 290px;
 }
 
 .login {
@@ -134,7 +134,6 @@ button {
 .active {
   background: var(--highlight-color);
   font-weight: bold;
-  box-shadow: 0px 0px 5px var(--highlight-color);
 }
 
 .line {
