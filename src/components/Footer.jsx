@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import axios from "axios";
+import Cookies from "js-cookie"; // Import js-cookie to manage cookies
 import "./Footer.css";
 
 const Footer = () => {
@@ -11,6 +12,14 @@ const Footer = () => {
     e.preventDefault();
     setMessage(""); // Clear previous messages
 
+    const token = Cookies.get("jwt"); // Get token from cookies
+    console.log("Token:", token); // Check if token is available
+
+    if (!token) {
+      setMessage("Please log in to subscribe.");
+      return;
+    }
+
     try {
       const response = await axios.post(
         "http://127.0.0.1:8000/api/notifications/",
@@ -18,7 +27,7 @@ const Footer = () => {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Token ${localStorage.getItem("token") || sessionStorage.getItem("token")}`, // Ensure authentication
+            Authorization: `Bearer ${token}`, // Ensure 'Bearer' prefix is added
           },
         }
       );
@@ -28,6 +37,7 @@ const Footer = () => {
         setEmail(""); // Clear input field
       }
     } catch (error) {
+      console.error("Error subscribing:", error); // Log detailed error
       setMessage("Failed to subscribe. Please try again.");
     }
   };
@@ -48,7 +58,7 @@ const Footer = () => {
             <li><a href="#">Home</a></li>
             <li><a href="#">About Us</a></li>
             <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/contact-us">Contact</a></li>
           </ul>
         </div>
 

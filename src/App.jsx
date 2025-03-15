@@ -1,4 +1,3 @@
-
 import { Routes, Route, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
@@ -16,6 +15,7 @@ import TransactionConfirmation from "./components/TransactionConfirmation";
 import TransferPortal from "./components/TransferPortal";
 import EnterRecipient from "./components/EnterRecipient";
 import Notifications from "./components/Notifications";
+import ContactUs from './components/ContactUs';
 import "./App.css";
 
 function App() {
@@ -48,9 +48,10 @@ function AppRoutes({ isLoggedIn, setIsLoggedIn }) {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
       <Route path="/verify-otp" element={<OTPInput />} />
-      
+      <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+      <Route path="/contact-us" element={<ContactUs />} />
+
       {/* Protected Routes (Only for Logged-In Users) */}
       <Route path="/dashboard" element={<ProtectedRoute element={<Dashboard />} isLoggedIn={isLoggedIn} />} />
       <Route path="/send-money" element={<ProtectedRoute element={<SendMoney />} isLoggedIn={isLoggedIn} />} />
@@ -68,7 +69,7 @@ function AppRoutes({ isLoggedIn, setIsLoggedIn }) {
 // Conditionally Hide Footer on Specific Pages
 function ConditionalFooter() {
   const location = useLocation();
-  const hideFooterOnPages = ["/login", "/signup", "/profile"];
+  const hideFooterOnPages = ["/login", "/signup", "/verify-otp", "/profile"];
   return !hideFooterOnPages.includes(location.pathname) ? <Footer /> : null;
 }
 

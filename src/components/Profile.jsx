@@ -1,25 +1,34 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios"; // Axios for making API requests
-import "./Profile.css"; // Import the CSS file for styling
+import axios from "axios";
+import Cookies from "js-cookie"; // Import js-cookie to manage cookies
+import "./Profile.css";
 
 const Profile = () => {
-  const [user, setUser] = useState(null); // State to store user data
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const token = localStorage.getItem("token"); // Get token from local storage
+        const token = Cookies.get("jwt"); // Get token from cookies
+        if (!token) {
+          setError("Unauthorized: No token found");
+          setLoading(false);
+          return;
+        }
+
         const response = await axios.get("http://localhost:8000/auth/profile/", {
           headers: {
-            Authorization: `Token ${token}`, // Send token for authentication
+            Authorization: `Bearer ${token}`,
           },
+          withCredentials: true,
         });
-        setUser(response.data); // Set user data
-        setLoading(false);
+
+        setUser(response.data);
       } catch (err) {
         setError("Failed to load user data");
+      } finally {
         setLoading(false);
       }
     };
@@ -40,16 +49,13 @@ const Profile = () => {
           <p><strong>Phone:</strong> {user.phone || "N/A"}</p>
           <p><strong>Address:</strong> {user.address || "N/A"}</p>
 
-          {/* Mobile Money & Crypto Wallets */}
           <h3>Accounts</h3>
           <p><strong>Mobile Money:</strong> {user.mobile_money_number || "Not Linked"}</p>
           <p><strong>Crypto Wallet:</strong> {user.crypto_wallet_address || "Not Linked"}</p>
 
-          {/* KYC Verification */}
           <h3>Verification</h3>
           <p><strong>KYC Status:</strong> {user.kyc_status || "Not Verified"}</p>
 
-          {/* Security Settings */}
           <h3>Security</h3>
           <p><strong>Two-Factor Authentication (2FA):</strong> {user.two_factor_enabled ? "Enabled" : "Disabled"}</p>
           <button>Change Password</button>
