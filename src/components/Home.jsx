@@ -97,7 +97,7 @@ const Home = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-        Start Now
+        Send Now
       </motion.button>
 
     </div>
