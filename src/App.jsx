@@ -54,7 +54,6 @@ function AppRoutes({ isLoggedIn, setIsLoggedIn }) {
       <Route path="/signup" element={<Signup />} />
       <Route path="/verify-otp" element={<OTPInput />} />
       <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
-      <Route path="/contact-us" element={<ContactUs />} />
 
       {/* Protected Routes (Only for Logged-In Users) */}
       <Route
@@ -62,6 +61,14 @@ function AppRoutes({ isLoggedIn, setIsLoggedIn }) {
         element={
           <ProtectedRoute isLoggedIn={isLoggedIn}>
             <Dashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/contact-us"
+        element={
+          <ProtectedRoute isLoggedIn={isLoggedIn}>
+            <ContactUs />
           </ProtectedRoute>
         }
       />

@@ -48,7 +48,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
         <nav className={`${styles.nav} ${isMenuOpen ? styles.open : ""}`}>
           {isLoggedIn ? (
             <>
-              <Link to="/entering-phone-number" className={styles.navLink} onClick={closeMenu}>
+              <Link to="/send-money" className={styles.navLink} onClick={closeMenu}>
                 Dashboard
               </Link>
               <Link to="/transfer-portal" className={styles.navLink} onClick={closeMenu}>

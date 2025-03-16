@@ -32,7 +32,7 @@ const Home = () => {
 
     // If all checks pass, redirect user
     setError(""); // Clear any previous error messages
-    navigate("/entering-phone-number");
+    navigate("/send-money");
   };
 
   return (
