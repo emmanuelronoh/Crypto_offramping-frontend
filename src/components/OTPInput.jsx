@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./OTPInput.css";
 
 const OTPVerification = () => {
@@ -10,8 +12,8 @@ const OTPVerification = () => {
   const inputRefs = useRef([]);
   const navigate = useNavigate();
 
-  const email = localStorage.getItem("email"); // Get email from localStorage
-  
+  const email = localStorage.getItem("email");
+
   useEffect(() => {
     if (!email) {
       setErrorMessage("Session expired. Please sign up again.");
@@ -41,19 +43,22 @@ const OTPVerification = () => {
     const otpCode = otp.join("");
     if (otpCode.length === 6) {
       try {
-        const response = await axios.post("http://localhost:8000/auth/verify-email/", { email, otp_code: otpCode });
+        const response = await axios.post("http://localhost:8000/auth/verify-email/", {
+          email,
+          otp_code: otpCode,
+        });
 
         if (response.data.message) {
-          alert(response.data.message);
+          toast.success(response.data.message);
           navigate("/login");
         } else {
-          setErrorMessage("Incorrect OTP. Please try again.");
+          toast.error("Incorrect OTP. Please try again.");
         }
       } catch (error) {
-        setErrorMessage("Error verifying OTP. Please try again.");
+        toast.error("Error verifying OTP. Please try again.");
       }
     } else {
-      setErrorMessage("Please enter all digits.");
+      toast.warn("Please enter all 6 digits.");
     }
   };
 
@@ -61,9 +66,14 @@ const OTPVerification = () => {
     setIsResending(true);
     try {
       const response = await axios.post("http://localhost:8000/auth/resend-otp/", { email });
-      alert(response.data.success ? "OTP has been resent to your email." : "Failed to resend OTP. Try again.");
+
+      if (response.data.success) {
+        toast.success("OTP has been resent to your email.");
+      } else {
+        toast.error("Failed to resend OTP. Try again.");
+      }
     } catch (error) {
-      setErrorMessage("Failed to resend OTP. Try again.");
+      toast.error("Failed to resend OTP. Try again.");
     } finally {
       setIsResending(false);
     }

@@ -6,12 +6,12 @@
     --dropdown-box-shadow: rgba(0, 0, 0, 0.15);
     --dropdown-header-bg: #0f0e2b;
     --dropdown-header-border: #ddd;
-    --user-name-color: #202124;
-    --user-email-color: #5f6368;
+    --user-name-color: #cb3ed2;
+    --user-email-color: #cb3ed2;
     --dropdown-link-color: #8709de;
     --dropdown-link-hover-bg: #f1f3f4;
     --logout-btn-hover-bg: #f1f3f4;
-    --logout-btn-text-color: #202124;
+    --logout-btn-text-color: #cb3ed2;
 }
 
 @media (prefers-color-scheme: light) {

@@ -127,15 +127,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./login.css";
 import logo from "/src/assets/logo.png";
 
 const Login = ({ setIsLoggedIn }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(null); // Track authentication status
+  const [isAuthenticated, setIsAuthenticated] = useState(null);
   const navigate = useNavigate();
 
   // Check if user is already authenticated
@@ -143,7 +144,7 @@ const Login = ({ setIsLoggedIn }) => {
     const token = Cookies.get("jwt");
 
     if (!token) {
-      setIsAuthenticated(false); // No token, proceed to login page
+      setIsAuthenticated(false);
       return;
     }
 
@@ -156,7 +157,7 @@ const Login = ({ setIsLoggedIn }) => {
         if (response.status === 200) {
           setIsLoggedIn(true);
           setIsAuthenticated(true);
-          navigate("/transfer-portal", { replace: true }); // Avoid flickering
+          navigate("/transfer-portal", { replace: true });
         }
       })
       .catch(() => {
@@ -168,7 +169,6 @@ const Login = ({ setIsLoggedIn }) => {
   // Handle login request
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError("");
     setIsLoading(true);
 
     try {
@@ -179,7 +179,7 @@ const Login = ({ setIsLoggedIn }) => {
       );
 
       if (response.status === 200) {
-        const token = response.data.accessToken; // Ensure backend sends 'accessToken'
+        const token = response.data.accessToken;
         Cookies.set("jwt", token, {
           expires: 7,
           secure: true,
@@ -188,10 +188,15 @@ const Login = ({ setIsLoggedIn }) => {
 
         setIsLoggedIn(true);
         setIsAuthenticated(true);
-        navigate("/transfer-portal", { replace: true }); // Prevent flickering
+        toast.success("Login successful! Redirecting...");
+        navigate("/transfer-portal", { replace: true });
       }
     } catch (err) {
-      setError(err.response?.data?.error || "Invalid email or password.");
+      if (err.response) {
+        toast.error(err.response.data.error || "Invalid email or password.");
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
     } finally {
       setIsLoading(false);
     }
@@ -212,7 +217,6 @@ const Login = ({ setIsLoggedIn }) => {
         <img src={logo} alt="Logo" className="logo" />
         <h2 className="title">Login</h2>
         <p className="subtitle">Welcome back! Please enter your details.</p>
-        {error && <p className="error-message">{error}</p>}
 
         <form onSubmit={handleLogin}>
           <label htmlFor="email">Email</label>
