@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaBell } from "react-icons/fa"; 
 import ProfileDropdown from "./ProfileDropdown"; 
 import styles from "./Header.module.css";
+import logoImage from "../assets/logo.png";
 
 const Header = ({ isLoggedIn, setIsLoggedIn }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,7 +40,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
       {/* Logo */}
       <div className={styles.logo}>
         <Link to="#" onClick={handleLogoClick}>
-          <img src="/src/assets/logo.png" alt="Logo" className={styles.logoImg} />
+          <img src={logoImage} alt="Logo" className={styles.logoImg} />
         </Link>
       </div>
 
