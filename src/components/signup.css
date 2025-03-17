@@ -48,7 +48,7 @@ h2 {
 }
 
 p {
-  color: #ccc;
+  color: #fdfafa !important; 
   font-size: 13px;
   text-align: left;
   margin-top: 10px;

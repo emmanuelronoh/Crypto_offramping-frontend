@@ -86,9 +86,7 @@
   transition: color 0.3s ease;
 }
 
-.nav a:hover {
-  color: var(--nav-link-hover-color);
-}
+
 
 /* Buttons */
 .nav button {

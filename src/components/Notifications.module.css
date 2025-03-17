@@ -15,7 +15,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
       --bg-color: #0d021f;
-      --text-color: #f1f1f1;
+      --text-color: #9c72d0;
       --card-bg: #242424;
       --shadow-color: rgba(255, 255, 255, 0.1);
       --unread-bg: linear-gradient(120deg, #64b5f6, #2196f3);
@@ -30,17 +30,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-/* Apply a full-page flexbox to keep the footer at the bottom */
-body, html {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  background: var(--bg-color);
-  color: var(--text-color);
-  transition: all 0.3s ease-in-out;
 }
 
 html, body {

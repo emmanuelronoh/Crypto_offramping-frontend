@@ -124,11 +124,11 @@ button {
 }
 
 .step {
-  background: #333;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 50%;
-  font-weight: bold;
+  background: #333 !important;
+  color: white !important;
+  padding: 8px 14px !important;
+  border-radius: 50% !important;
+  font-weight: bold !important;
 }
 
 .active {
