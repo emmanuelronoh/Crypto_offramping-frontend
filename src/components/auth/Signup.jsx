@@ -4,7 +4,7 @@ import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
 import Cookies from "js-cookie";
 import "./signup.css";
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 
 const Signup = () => {
   const [fullName, setFullName] = useState("");

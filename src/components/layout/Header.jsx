@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBell } from "react-icons/fa"; 
-import ProfileDropdown from "./ProfileDropdown"; 
+import ProfileDropdown from "../pages/Profile/ProfileDropdown"; 
 import styles from "./Header.module.css";
-import logoImage from "../assets/logo.png";
+import logoImage from "../../assets/logo.png";
 
 const Header = ({ isLoggedIn, setIsLoggedIn }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

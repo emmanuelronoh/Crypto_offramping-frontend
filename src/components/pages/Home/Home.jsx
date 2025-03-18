@@ -69,11 +69,11 @@
 
 import React from "react";
 import "./Hero-section.css";
-import bitcoin from "../assets/bitcoin.png";
-import ethereum from "../assets/ethereum.png";
-import tether from "../assets/tether.png";
-import solana from "../assets/solana.png";
-import usdCoin from "../assets/usd-coin.png";
+import bitcoin from "../../../assets/bitcoin.png";
+import ethereum from "../../../assets/ethereum.png";
+import tether from "../../../assets/tether.png";
+import solana from "../../../assets/solana.png";
+import usdCoin from "../../../assets/usd-coin.png";
 
 const payoutOptions = [
   { icon: "📲", name: "M-Pesa", description: "Instant mobile money withdrawal" },
