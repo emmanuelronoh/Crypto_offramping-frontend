@@ -117,7 +117,7 @@ const Signup = () => {
             />
           </div>
           <ReCAPTCHA
-            sitekey="6LcbsfMqAAAAAMEmb8yEgEooLlqGP3LPLTosW-Ny"
+            sitekey="6LcWFPgqAAAAALxL0C0hs-OMqwGE1S7u41HhGvO-"
             data-theme="dark"
             onChange={handleRecaptcha}
           />
