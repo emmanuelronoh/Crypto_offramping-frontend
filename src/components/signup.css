@@ -1,7 +1,7 @@
 .signup-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center !important;
   min-height: 100vh;
   background: #0d0c1d;
   padding: 5% 0;
@@ -48,7 +48,7 @@ h2 {
 }
 
 p {
-  color: #fdfafa !important; 
+  color: #ccc;
   font-size: 13px;
   text-align: left;
   margin-top: 10px;
@@ -62,7 +62,8 @@ p {
 
 .input-group label {
   display: block;
-  color: white;
+  color: #ffffff !important;
+  text-align: left;
   font-size: 14px;
   margin-bottom: 5px;
 }

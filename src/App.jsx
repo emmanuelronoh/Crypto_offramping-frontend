@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
+import AboutUs from "./components/AboutUs";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import SendMoney from "./components/SendMoney";
@@ -24,9 +25,20 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem("token") || sessionStorage.getItem("token");
-    setIsLoggedIn(!!token);
+    const checkAuth = () => {
+      const token = localStorage.getItem("token") || sessionStorage.getItem("token");
+      setIsLoggedIn(!!token);
+    };
+  
+    checkAuth(); // Initial check
+  
+    window.addEventListener("storage", checkAuth); // Listen for changes in storage
+  
+    return () => {
+      window.removeEventListener("storage", checkAuth);
+    };
   }, []);
+  
 
   return (
     <div className="app-container">
@@ -51,9 +63,11 @@ function AppRoutes({ isLoggedIn, setIsLoggedIn }) {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/about-us" element={<AboutUs />} /> 
       <Route path="/signup" element={<Signup />} />
       <Route path="/verify-otp" element={<OTPInput />} />
       <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+
 
       {/* Protected Routes (Only for Logged-In Users) */}
       <Route

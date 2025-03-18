@@ -55,8 +55,8 @@ const Footer = () => {
         <div className="footer-links">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="/transfer-portal">Home</a></li>
+            <li><a href="/about-us">About Us</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="/contact-us">Contact</a></li>
           </ul>
@@ -66,8 +66,8 @@ const Footer = () => {
         <div className="footer-contact">
           <h3>Contact Us</h3>
           <p>Email: support@blif.com</p>
-          <p>Phone: +254 712 345 678</p>
-          <p>Address: 123 Nairobi St, Kenya</p>
+          <p>Phone: +1 (212) 123-4567</p>
+          <p>123 Main Street, New York, NY 10001, USA</p>
         </div>
 
         {/* Social Media Icons */}

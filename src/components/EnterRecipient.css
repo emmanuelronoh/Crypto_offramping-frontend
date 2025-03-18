@@ -1,38 +1,4 @@
-/* General Styles */
-.container {
-  max-width: 500px; /* Changed from fixed width to max-width */
-  width: 90%; /* Allows better responsiveness */
-  padding: 20px;
-  background-color:#0d021f;
-  border-radius: 10px;
-  margin-top: 20px; /* Reduced margin */
-  margin-left: auto;
-  margin-right: auto;
-}
 
-.title {
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.subtitle {
-  font-size: 14px;
-  color: #bbb;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* Progress Bar */
-.progress {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  position: relative;
-  width: 100%;
-  flex-wrap: wrap; /* Allows wrapping in smaller screens */
-}
 
 .step-container {
   display: flex;
@@ -62,9 +28,138 @@
   margin-right: 5px;
 }
 
+/* General Styles */
+:root {
+  --background-dark: #0d021f;
+  --background-light: #ffffff;
+  --text-dark: #ffffff;
+  --text-light: #000000;
+  --card-dark: #0d1028;
+  --card-light: #f5f5f5;
+  --accent-dark: #635caa;
+  --accent-light: #7d00b5;
+  --border-dark: #444;
+  --border-light: #ddd;
+}
+
+/* Detects user's preferred mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+  }
+  .container, .card, .address-box, .warning {
+    background-color: var(--card-dark);
+    color: var(--text-dark);
+  }
+  .btn {
+    background-color: var(--accent-dark);
+  }
+  .btn:hover {
+    background-color: var(--accent-light);
+  }
+  .line {
+    background-color: var(--border-dark);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--background-light);
+    color: var(--text-light);
+  }
+  .container, .card, .address-box, .warning {
+    background-color: var(--card-light);
+    color: var(--text-light);
+  }
+  .btn {
+    background-color: var(--accent-light);
+  }
+  .btn:hover {
+    background-color: var(--accent-dark);
+  }
+  .line {
+    background-color: var(--border-light);
+  }
+}
+
+.container {
+  max-width: 500px;
+  width: 90%;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 14px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.input-group {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #007bff;
+}
+
+
+/* Progress Bar */
+.progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.step {
+  width: 30px !important;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.line {
+  width: 80px;
+  height: 5px;
+  margin: 0 5px;
+}
+
 /* Card Styling */
 .card {
-  background-color: #0d1028;
   padding: 15px;
   border-radius: 10px;
   margin-bottom: 15px;
@@ -76,67 +171,38 @@
   margin-bottom: 10px;
 }
 
-
 .btc-info {
   display: flex;
-  justify-content: space-between; /* Ensures both elements stay on the same line */
+  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Allows wrapping if space is too small */
+  flex-wrap: wrap;
 }
 
 .rate {
   font-size: 12px;
-  color: #888;
-  margin-left: auto; /* Pushes it to the right while staying responsive */
+  margin-left: auto;
   text-align: right;
 }
 
-/* Adjustments for smaller screens */
-@media screen and (max-width: 480px) {
-  .btc-info {
-    flex-direction: column; /* Stacks elements vertically on small screens */
-    align-items: flex-start;
-  }
-
-  .rate {
-    margin-left: 0; /* Reset margin for smaller screens */
-    text-align: left;
-    font-size: 10px; /* Reduce font size for better readability */
-  }
-}
-
-
-
-
 .address-box {
-  background-color: #293b4f;
   padding: 8px;
   border-radius: 5px;
   font-weight: bold;
   text-align: center;
-  word-break: break-all; /* Ensures long text wraps */
-  overflow-wrap: break-word; /* Alternative for better wrapping */
-  max-width: 100%; /* Prevents it from overflowing */
-  box-sizing: border-box; /* Ensures padding doesn't make it overflow */
+  word-break: break-all;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  box-sizing: border-box;
 }
-
-@media screen and (max-width: 480px) {
-  .address-box {
-    font-size: 12px; /* Reduces font size on small screens */
-    padding: 5px; /* Less padding for small screens */
-  }
-}
-
 
 .buttons {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap; /* Ensures buttons don't overflow */
+  flex-wrap: wrap;
   justify-content: center;
 }
 
 .btn {
-  background-color: #635caa;
   color: white;
   padding: 10px;
   border: none;
@@ -145,11 +211,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px; /* Adds space between icon and text */
-}
-
-.btn:hover {
-  background-color: #7d00b5;
+  gap: 5px;
 }
 
 /* Transaction Summary */
@@ -165,48 +227,29 @@
   padding: 5px 0;
 }
 
-.summary-label {
-  font-weight: normal;
-}
-
 .summary-value {
   font-weight: bold;
   text-align: right;
 }
 
-/* Warning Message */
 .warning {
-  background-color: #272526;
-  color: #8a8a35;
   padding: 10px;
   border-radius: 5px;
   text-align: center;
 }
 
-.highlight {
-  font-weight: bold;
-  color: #ffcc00;
-}
-
 .actions {
   display: flex;
-  justify-content: space-between; /* Pushes buttons to opposite corners */
+  justify-content: space-between;
   margin-top: 10px;
-  padding: 0 15px; /* Ensures buttons are inside the card with spacing */
+  padding: 0 15px;
 }
 
-.back {
-  background-color: #6a1b9a;
+.back, .complete {
   padding: 10px 20px;
 }
 
-.complete {
-  background-color: #6a1b9a;
-  padding: 10px 20px;
-  margin-left: 150px;
-}
-
-/* ✅ Responsive Design */
+/* Responsive Design */
 @media screen and (max-width: 768px) {
   .container {
     width: 95%;
@@ -254,9 +297,9 @@
   }
 
   .step {
-    width: 25px !important;
-    height: 25px !important;
-    font-size: 12px !important;
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
   }
 
   .line {
@@ -270,4 +313,11 @@
   .btn {
     width: 100%;
   }
+}
+
+.qr-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
 }

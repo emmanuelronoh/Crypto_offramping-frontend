@@ -1,20 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import "./EnterRecipient.css";
-import { FaQrcode } from "react-icons/fa";
-import { FaClipboard } from "react-icons/fa";
+import { FaQrcode, FaClipboard } from "react-icons/fa";
+import { QRCodeCanvas } from "qrcode.react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useLocation } from "react-router-dom";
 
 const SendMoney = () => {
   const navigate = useNavigate();
+  const btcAddress = "1FfmbHfnpaZjKFvyi1okTjJJusN455paPH";
+  const [showQR, setShowQR] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const location = useLocation();
+  const { recipientName = "Unknown Recipient" } = location.state || {};
+  console.log("Recipient Name:", recipientName);
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(btcAddress);
+    toast.success("Address copied to clipboard!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "light",
+    });
+  };
 
   return (
     <>
-      {/* Header Section - Outside the Card */}
+      <ToastContainer />
       <div className="header-section">
         <h2 className="title">Send Money</h2>
         <p className="subtitle">Convert crypto to mobile money in a few simple steps</p>
 
-        {/* Progress Steps */}
         <div className="progress">
           <div className="step-container">
             <span className="step active">1</span>
@@ -31,30 +51,45 @@ const SendMoney = () => {
         </div>
       </div>
 
-      {/* Content Card - Starts Below the Header */}
       <div className="container">
-        {/* Recipient Details Card */}
         <div className="card">
           <h3 className="section-title">Recipient Details</h3>
           <p>Enter the recipient mobile money information</p>
+
+          <div className="input-group">
+            <label htmlFor="phone-number"></label>
+            <input
+              type="text"
+              id="phone-number"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              placeholder="Enter recipient's phone number"
+            />
+          </div>
+
           <p className="btc-info">
             Send <strong>0.23 BTC</strong> to
             <span className="rate">1 BTC = 65,000 KES</span>
           </p>
 
-          <div className="address-box">1FfmbHfnpaZjKFvyi1okTjJJusN455paPH</div>
+          <div className="address-box">{btcAddress}</div>
 
           <div className="buttons">
-            <button className="btn">
+            <button className="btn" onClick={copyToClipboard}>
               <FaClipboard /> Copy Address
             </button>
-            <button className="btn">
-              <FaQrcode /> Show QR Scan
+            <button className="btn" onClick={() => setShowQR(!showQR)}>
+              <FaQrcode /> {showQR ? "Hide QR Scan" : "Show QR Scan"}
             </button>
           </div>
+
+          {showQR && (
+            <div className="qr-container">
+              <QRCodeCanvas value={btcAddress} size={150} />
+            </div>
+          )}
         </div>
 
-        {/* Transaction Summary Card */}
         <div className="card transaction-summary">
           <h3 className="section-title">Transaction Summary</h3>
 
@@ -65,12 +100,12 @@ const SendMoney = () => {
 
           <div className="summary-row">
             <span className="summary-label">Recipient:</span>
-            <span className="summary-value">Not specified</span>
+            <span className="summary-value">{recipientName || "Not specified"}</span>
           </div>
 
           <div className="summary-row">
             <span className="summary-label">Phone Number:</span>
-            <span className="summary-value">Not specified</span>
+            <span className="summary-value">{phoneNumber || "Not specified"}</span>
           </div>
 
           <div className="summary-row">
@@ -79,18 +114,17 @@ const SendMoney = () => {
           </div>
         </div>
 
-        {/* Warning Message */}
         <div className="warning">
           Please wait for at least 1 confirmation before proceeding to the next step
         </div>
 
-        {/* Action Buttons */}
         <div className="actions">
-        <button className="btn back" onClick={() => navigate("/transfer-portal")}>
+          <button className="btn back" onClick={() => navigate("/transfer-portal")}>
             Back
           </button>
           <button className="btn complete" onClick={() => navigate("/transaction-confirmation")}>
-          Complete Transfer ➜</button>
+            Complete Transfer ➜
+          </button>
         </div>
       </div>
     </>

@@ -108,7 +108,7 @@ const Notifications = () => {
           </ul>
         </>
       )}
-      <Link to="/">Back to Home</Link>
+      <Link to="/transfer-portal">Back to Home</Link>
     </div>
   );
 };

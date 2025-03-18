@@ -3,8 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
 import Cookies from "js-cookie";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import "./signup.css";
 import logo from "../assets/logo.png";
 
@@ -14,6 +12,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [recaptchaToken, setRecaptchaToken] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const handleRecaptcha = (token) => {
@@ -23,15 +22,13 @@ const Signup = () => {
   const register = async (e) => {
     e.preventDefault();
 
-    // Validate passwords match
     if (password !== confirmPassword) {
-      toast.error("Passwords do not match!");
+      setErrorMessage("Passwords do not match!");
       return;
     }
 
-    // Check reCAPTCHA verification
     if (!recaptchaToken) {
-      toast.error("Please verify that you are not a robot.");
+      setErrorMessage("Please verify that you are not a robot.");
       return;
     }
 
@@ -39,7 +36,7 @@ const Signup = () => {
       full_name: fullName,
       email: email,
       password: password,
-      confirm_password: confirmPassword,
+      confirm_password: confirmPassword, // Ensure this is included
       recaptcha_token: recaptchaToken,
     };
 
@@ -56,22 +53,17 @@ const Signup = () => {
         Cookies.set("user", JSON.stringify(user), { expires: 7 });
 
         localStorage.setItem("email", email);
-        toast.success("Registration successful! Check your email for OTP.");
         navigate("/verify-otp");
       } else {
-        toast.error(response.data.message || "Registration failed. Try again.");
+        setErrorMessage(response.data.message || "Registration failed. Try again.");
       }
     } catch (error) {
+      // Handle server validation errors
       if (error.response && error.response.data) {
         const errors = error.response.data;
-
-        if (errors.email) toast.error(errors.email[0]);
-        else if (errors.password) toast.error(errors.password[0]);
-        else if (errors.confirm_password) toast.error(errors.confirm_password[0]);
-        else if (errors.error) toast.error(errors.error);
-        else toast.error("Failed to register. Please try again.");
+        setErrorMessage(errors.confirm_password?.[0] || "Failed to register. Please try again.");
       } else {
-        toast.error("Network error. Please try again later.");
+        setErrorMessage("Failed to register. Please try again.");
       }
     }
   };
@@ -82,6 +74,7 @@ const Signup = () => {
         <img src={logo} alt="Logo" className="logo" />
         <h2>Create Account</h2>
         <p>Enter your information to create an account</p>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <form onSubmit={register}>
           <div className="input-group">
             <label>Full Name</label>
@@ -125,6 +118,7 @@ const Signup = () => {
           </div>
           <ReCAPTCHA
             sitekey="6LcbsfMqAAAAAMEmb8yEgEooLlqGP3LPLTosW-Ny"
+            data-theme="dark"
             onChange={handleRecaptcha}
           />
           <button type="submit" className="signup-btn">Create account</button>

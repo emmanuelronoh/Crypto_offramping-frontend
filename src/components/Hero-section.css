@@ -33,7 +33,6 @@ h1 {
     font-weight: bold;
     letter-spacing: 1px;
     margin-bottom: 15px;
-    text-transform: uppercase;
     animation: slideDown 1s ease-in-out;
 }
 
@@ -111,6 +110,7 @@ p {
     font-weight: bold;
     color: #6a0dad;
     margin-bottom: 15px;
+    text-transform: uppercase;
 }
 
 .crypto-description {
@@ -180,7 +180,6 @@ p {
 
 .steps {
     display: flex !important;
-    flex-direction: column !important;
     align-items: center !important;
     gap: 20px !important;
     text-align: center !important;
@@ -244,7 +243,6 @@ p {
     .step {
         flex: 1;
         margin: 0 10px;
-        min-width: 250px;
     }
 }
 

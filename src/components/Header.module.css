@@ -35,10 +35,11 @@
 /* Header */
 .header {
   width: 100%;
+  height: 65px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  margin-right: 20px;
   background: var(--header-bg);
   color: var(--header-text-color);
   position: relative; /* Fix header at the top */
@@ -69,7 +70,8 @@
 .navRight {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
+  margin-right: 70px;
 }
 
 /* Navigation Menu */

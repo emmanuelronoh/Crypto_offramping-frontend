@@ -1,227 +1,233 @@
+:root {
+  /* Light Mode Variables */
+  --bg-color: #ffffff;
+  --text-color: #333;
+  --card-bg: #f9f9f9;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --progress-bg: #33274d;
+  --progress-active: #a394c2;
+  --progress-completed: #5a3fc9;
+  --button-bg: #4A3AFF;
+  --button-text: white;
+  --button-border: #4A3AFF;
+  --info-box-bg: #f1f1f1;
+  --info-box-border: #ddd;
+  --label-color: #666;
+  --value-color: #000;
+  --exchange-info-color: #666;
+}
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Mode Variables */
+    --bg-color: #0d021f;
+    --text-color: white;
+    --card-bg: #170f2b;
+    --shadow-color: rgba(255, 255, 255, 0.1);
+    --progress-bg: #33274d;
+    --progress-active: #a394c2;
+    --progress-completed: #5a3fc9;
+    --button-bg: #4A3AFF;
+    --button-text: white;
+    --button-border: #4A3AFF;
+    --info-box-bg: #191328;
+    --info-box-border: #414149;
+    --label-color: #bbb;
+    --value-color: white;
+    --exchange-info-color: #bbb;
+  }
+}
 
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Send Money Container */
 .send-money-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #0d021f;
-    color: white;
-    text-align: center;
-  }
-  
-  .title {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .subtitle {
-    font-size: 14px;
-    margin-bottom: 20px;
-    color: #bbb;
-  }
-  
-  .progress-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .step {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  
-  .completed {
-    background-color: #4A3AFF;
-    color: white;
-  }
-  
-  .active {
-    background-color: white;
-    color: #4A3AFF;
-  }
-  
-  .upcoming {
-    background-color: #555;
-    color: white;
-  }
-  
-  .send-crypto-box {
-    background-color: #170f2b;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  .section-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .section-subtitle {
-    font-size: 14px;
-    color: #bbb;
-    margin-bottom: 20px;
-  }
-  
-  .crypto-info {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .info-box {
-    background-color: #191328;
-    padding: 10px;
-    border-radius: 8px;
-    border: 2px solid #414149;
-    text-align: left;
-  }
-  
-  .label {
-    font-size: 12px;
-    color: #bbb;
-  }
-  
-  .value {
-    font-size: 16px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .btc-icon {
-    color: #f2a900;
-  }
-  
-  .exchange-info {
-    font-size: 14px;
-    color: #bbb;
-    text-align: left;
-    margin-bottom: 20px;
-  }
-
-  .progress-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px 0;
-    position: relative;
-  }
-  
-  .exchange-info p {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-  }
-
-  .progress-step.completed {
-    background-color: #4caf50;
-  }
-  .progress-step.active {
-    background-color: #ffcc00;
-    color: black;
-  }
-  .buttons {
-    display: flex !important;
-    justify-content: space-between !important;
-    margin-top: 20px !important;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  text-align: center;
 }
 
-.back-btn {
-    background-color: transparent !important;
-    border: 1px solid #4A3AFF !important;
-    color: #4A3AFF !important;
-    padding: 10px 20px !important;
-    border-radius: 5px !important;
-    cursor: pointer !important;
+.title {
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.send-btn {
-    background-color: #4A3AFF !important;
-    color: white !important;
-    padding: 10px 20px !important;
-    border: none !important;
-    border-radius: 5px !important;
-    cursor: pointer !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 5px !important;
-}
-  
-  .send-money-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #0d021f;
-    color: white;
-    text-align: center;
+.subtitle {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: var(--label-color);
 }
 
 /* Progress Bar */
 .progress-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 80%;
-    margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 80%;
+  margin: 20px 0;
 }
 
-/* Progress Line */
 .progress-line {
-    flex: 1;
-    height: 4px;
-    background-color: #33274d;
-    position: relative;
-    z-index: 1;
+  flex: 1;
+  height: 4px;
+  background-color: var(--progress-bg);
+  position: relative;
+  z-index: 1;
 }
 
-/* Active Line */
 .progress-line.active {
-    background-color: #a394c2;
+  background-color: var(--progress-active);
 }
 
-/* Step Circles */
 .progress-step {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-    background-color: #33274d;
-    z-index: 2;
-    position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: var(--progress-bg);
+  z-index: 2;
+  position: relative;
 }
 
-/* Completed Step */
 .progress-step.completed {
-    background-color: #5a3fc9;
+  background-color: var(--progress-completed);
 }
 
-/* Active Step */
 .progress-step.active {
-    background-color: #a394c2;
-    color: black;
+  background-color: var(--progress-active);
+  color: black;
 }
 
-/* Step Counter */
 .step-counter {
-    font-size: 14px;
-    color: #bbb;
-    margin-top: 10px;
+  font-size: 14px;
+  color: var(--label-color);
+  margin-top: 10px;
+}
+
+/* Send Crypto Box */
+.send-crypto-box {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid var(--info-box-border);
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: var(--label-color);
+  margin-bottom: 20px;
+}
+
+/* Crypto Info */
+.crypto-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.info-box {
+  background-color: var(--info-box-bg);
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--label-color);
+}
+
+.value {
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--value-color);
+}
+
+.btc-icon {
+  color: #f2a900;
+}
+
+/* Exchange Info */
+.exchange-info {
+  font-size: 14px;
+  color: var(--exchange-info-color);
+  text-align: left;
+  margin-bottom: 20px;
+  border: 2px solid var(--info-box-border);
+  border-radius: 8px;
+}
+
+.exchange-info p {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+:root {
+  --button-border: #000; /* Default border color */
+  --button-text: #000; /* Default text color for light mode */
+}
+
+.dark-mode {
+  --button-border: #fff; /* Change border color in dark mode */
+  --button-text: #fff; /* Change text color in dark mode */
+}
+
+.back-btn {
+  background-color: transparent;
+  border: 1px solid var(--button-border);
+  color: var(--button-text);
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.send-btn {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
