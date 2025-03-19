@@ -1,837 +1,373 @@
-/* Fullscreen Background */
-.home-container {
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                url('../assets/Africa-Shutterstock.jpg') center/cover no-repeat;
+/* /* General Styling */
+.home {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
-    margin-top: -60px !important;
-}
-
-/* Prevent homepage image from being affected by margin */
-body:not(.home) .main-content {
-    margin-top: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Content Styling */
-.content {
-    max-width: 700px;
-    padding: 30px;
-    background: rgba(0, 0, 0, 0.5); /* Subtle overlay */
-    border-radius: 15px;
-    color: white;
-    animation: fadeIn 1.5s ease-in-out;
-}
-
-h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-    animation: slideDown 1s ease-in-out;
-}
-
-p {
-    font-size: 1.3rem;
-    opacity: 0.9;
-    margin-bottom: 25px;
-    animation: fadeIn 2s ease-in-out;
-}
-
-/* Button Styling */
-.get-started-btn {
-    background: #6a0dad;
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 30px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
-    animation: popUp 1.2s ease-in-out;
-}
-
-.get-started-btn:hover {
-    background: #8a2be2;
-    transform: scale(1.05);
-    box-shadow: 0px 6px 15px rgba(255, 255, 255, 0.3);
-}
-
-/* Default Light Mode */
-.crypto-hero-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: -60px;
-    padding: 60px 100px;
-    background: #f4f7fc;
-    color: #000; /* Ensures text visibility in light mode */
-}
-
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-    .crypto-hero-container {
-        background: #0d021f;
-        color: #fff; /* Ensures text visibility in dark mode */
-    }
-
-    .crypto-title {
-        color: #d3a3ff; /* Softer purple for dark mode */
-    }
-
-    .crypto-description {
-        color: #ffffff !important;
-    }
-
-    .crypto-btn {
-        background: #6a0dad;
-        color: #fff;
-    }
-
-    .crypto-btn:hover {
-        background: #9c8be4;
-    }
-}
-
-/* Content Styling */
-.crypto-content {
-    max-width: 500px;
-}
-
-.crypto-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #6a0dad;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
-
-.crypto-description {
-    font-size: 1.2rem;
-    color: #222; /* Darker text for light mode */
-    margin-bottom: 20px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    transition: color 0.3s ease-in-out;
-}
-
-@media (prefers-color-scheme: dark) {
-    .crypto-description {
-        color: #f5f5f5; /* Light text for dark mode */
-    }
-}
-
-
-.p {
-    color: #000 !important;
-}
-
-/* Button Styling */
-.crypto-btn {
-    background: #9c8be4;
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 30px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.crypto-btn:hover {
-    background: #333;
-    transform: scale(1.05);
-}
-
-/* Crypto Icons */
-.crypto-icons {
-    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
+    min-height: 100vh;
+    background: #0d021f;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    padding: 20px;
+  }
+  
+  /* Light Mode */
+  @media (prefers-color-scheme: light) {
+    .home {
+      background: #ffffff;
+      color: #111;
+    }
+    
+    .sidebar {
+      background: #fff;
+      color: #222;
+    }
+  
+    .send-container {
+      background: #eaeaea;
+      color: #333;
+    }
+  
+    .input-group {
+      background: #ddd;
+    }
+  
+    .input-group input,
+    .input-group select {
+      color: #111;
+    }
+  
+    .mpesa-box {
+      background: #ccc;
+    }
+  
+    .continue-btn {
+      background: #6200ea;
+      color: white;
+    }
+  
+    .continue-btn:hover {
+      background: #45009d;
+    }
+  }
+  
+  /* Default (Dark Mode) */
+  .sidebar {
+    width: 40%;
+    padding: 50px;
+    background: #0d021f;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    gap: 15px;
-}
-
-.crypto-icon {
-    width: 60px;
-    height: auto;
-    animation: floatAnimation 3s infinite ease-in-out;
-}
-
-/* Default Light Mode */
-.steps-container {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: #f4f7fc;
-    color: #000; /* Ensures text visibility */
-}
-
-.steps-container h2 {
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.steps {
-    display: flex !important;
-    align-items: center !important;
-    gap: 20px !important;
-    text-align: center !important;
-}
-
-.step {
-    padding: 20px !important;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
-    max-width: 300px !important;
-    width: 100% !important;
-}
-
-.step h3 {
-    font-size: 20px;
-    color: #0a0a0a;
-    margin-bottom: 5px;
-}
-
-.step p {
-    font-size: 16px;
-    color: #100c0c;
-}
-
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-    .steps-container {
-        background-color: #0d021f;
-        color: #fff;
+    color: #fff;
+  }
+  
+  /* Light Mode */
+  @media (prefers-color-scheme: light) {
+    .sidebar {
+      background: #ffffff;
+      color: #000;
     }
-
-    .steps-container h2 {
-        color: #d3a3ff; /* Soft purple for better contrast */
-    }
-
-    .step {
-        background-color: #1a082f;
-        color: #fff;
-        box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
-    }
-
-    .step h3 {
-        color: #f4f4f4;
-    }
-
-    .step p {
-        color: #e0e0e0;
-    }
-}
-
-/* Responsive Fix */
-@media (min-width: 768px) {
-    .steps {
-        flex-direction: row;
-        justify-content: space-between;
-        width: 100%;
-        max-width: 900px;
-        margin: auto;
-    }
-
-    .step {
-        flex: 1;
-        margin: 0 10px;
-    }
-}
-
-  /* Default Light Mode */
-.trade-container {
-    text-align: center;
-    padding: 50px 20px;
-    background: #f4f7fc;
-    overflow: hidden;
-    color: #000;
-}
-
-.trade-container h2 {
+  }
+  
+  /* Sidebar Heading */
+  .sidebar h1 {
     font-size: 28px;
     font-weight: bold;
-    color: #222;
-}
-
-.trade-container p {
+    line-height: 1.3;
+  }
+  
+  
+  /* Buttons */
+  .buttons {
+    margin-top: 30px;
+  }
+  
+  .start-btn, .login-btn {
+    display: block;
+    width: 200px;
+    padding: 12px;
     font-size: 16px;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-/* Coins List - Horizontal Scroll */
-.coins-list {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    white-space: nowrap;
-    padding-bottom: 10px;
-    -ms-overflow-style: none;  /* Hide scrollbar in IE and Edge */
-    scrollbar-width: none;  /* Hide scrollbar in Firefox */
-}
-
-.coins-list::-webkit-scrollbar {
-    display: none; /* Hide scrollbar in Chrome, Safari, and Edge */
-}
-
-/* Coin Cards */
-.coin-card {
-    flex: 0 0 auto;
-    background: white;
-    padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    width: 160px;
-    scroll-snap-align: start;
-    transition: transform 0.3s ease-in-out;
-}
-
-.coin-card:hover {
-    transform: translateY(-5px);
-}
-
-/* Coin Icons */
-.coin-icon {
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .start-btn {
+    background: #a020f0;
+    color: #fff;
+    border: none;
+  }
+  
+  /* Receive Money Icons */
+  .receive-icon {
     width: 40px;
     height: 40px;
     object-fit: contain;
-    margin-bottom: 10px;
-}
-
-/* Coin Info */
-.coin-info h3 {
-    font-size: 16px;
-    color: #000;
-    margin: 5px 0;
-}
-
-.coin-info p {
-    font-size: 14px;
-    color: #333;
-}
-
-/* Trade Button */
-.trade-btn {
-    background: black;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    margin-top: 20px;
-    cursor: pointer;
-}
-
-.trade-btn:hover {
-    opacity: 0.8;
-}
-
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-    .trade-container {
-        background: #0d021f;
-        color: #fff;
-    }
-
-    .trade-container h2 {
-        color: #d3a3ff; /* Soft purple */
-    }
-
-    .trade-container p {
-        color: #ccc;
-    }
-
-    .coin-card {
-        background: #1a082f;
-        color: white;
-        box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-    }
-
-    .coin-info h3 {
-        color: #fff;
-    }
-
-    .coin-info p {
-        color: #ddd;
-    }
-
-    .trade-btn {
-        background: #9c8be4;
-        color: black;
-    }
-
-    .trade-btn:hover {
-        background: #d3a3ff;
-    }
-}
-
-  /* Default Light Mode */
-.payout-container {
-    text-align: center;
-    padding: 50px 20px;
-    background: #f4f7fc; /* Light blue background */
-    overflow: hidden;
-    color: #000;
-}
-
-.payout-container h2 {
-    font-size: 28px;
-    font-weight: bold;
-    color: #222;
-}
-
-.payout-container p {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-/* Payout List - Horizontal Scroll */
-.payout-list {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    white-space: nowrap;
-    padding-bottom: 10px;
-    -ms-overflow-style: none;  /* Hide scrollbar in IE and Edge */
-    scrollbar-width: none;  /* Hide scrollbar in Firefox */
-}
-
-.payout-list::-webkit-scrollbar {
-    display: none; /* Hide scrollbar in Chrome, Safari, and Edge */
-}
-
-/* Payout Cards */
-.payout-card {
-    flex: 0 0 auto;
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    width: 180px;
-    scroll-snap-align: start;
-    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-}
-
-.payout-card:hover {
-    transform: translateY(-5px);
-}
-
-/* Payout Icons */
-.payout-icon {
-    font-size: 30px;
-}
-
-/* Payout Info */
-.payout-info h3 {
-    font-size: 16px;
-    color: #000;
-    margin: 5px 0;
-}
-
-.payout-info p {
-    font-size: 14px;
-    color: #333;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
-    max-width: 100%;
-}
-
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-    .payout-container {
-        background: #0d021f; /* Dark mode background */
-        color: #fff;
-    }
-
-    .payout-container h2 {
-        color: #d3a3ff; /* Soft purple */
-    }
-
-    .payout-container p {
-        color: #ccc;
-    }
-
-    .payout-card {
-        background: #1a082f;
-        color: white;
-        box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-    }
-
-    .payout-info h3 {
-        color: #fff;
-    }
-
-    .payout-info p {
-        color: #ddd;
-    }
-}
-
+    margin-right: 10px;
+  }
   
-  /* Default Light Mode */
-.security-container {
-    text-align: center;
-    padding: 50px 20px;
-    background: #f4f7fc; /* Light blue background */
-    color: #000;
-}
-
-.security-container h2 {
-    font-size: 28px;
-    font-weight: bold;
-    color: #222;
-    margin-bottom: 20px;
-}
-
-/* Security Features Layout */
-.security-features {
+  .receive-method {
     display: flex;
-    gap: 20px;
+    align-items: center;
+  }
+  
+  /* Default (Dark Mode) */
+  .send-container {
+    width: 50%;
+    padding: 50px;
+    background: #12132a;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* Security Card */
-.security-card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-}
-
-.security-card:hover {
-    transform: translateY(-5px);
-}
-
-/* Security Card Text */
-.security-card h3 {
-    font-size: 18px;
-    color: #000;
+    color: #fff;
+  }
+  
+  /* Light Mode */
+  @media (prefers-color-scheme: light) {
+    .send-container {
+      background: #f8f9fa;
+      color: #000;
+    }
+  }
+  
+  /* Headers */
+  h2 {
+    font-size: 24px;
     margin-bottom: 10px;
-}
-
-.security-card p {
+    color: black;
+  }
+  
+  /* Dark Mode */
+  @media (prefers-color-scheme: dark) {
+    h2 {
+      color: white;
+    }
+  }
+  
+  
+  p {
     font-size: 14px;
-    color: #555;
-}
-
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-    .security-container {
-        background: #0d021f; /* Dark mode background */
-        color: #fff;
-    }
-
-    .security-container h2 {
-        color: #d3a3ff; /* Soft purple */
-    }
-
-    .security-card {
-        background: #1a082f;
-        color: white;
-        box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-    }
-
-    .security-card h3 {
-        color: #fff;
-    }
-
-    .security-card p {
-        color: #ddd;
-    }
-}
-
-  .faqs-container p {
-    color: #000 !important;
-  }
-  .steps-container p {
-    color: #222; /* Darker text for light mode */
-    transition: color 0.3s ease-in-out;
-}
-
-@media (prefers-color-scheme: dark) {
-    .steps-container p {
-        color: #f5f5f5; /* Light text for dark mode */
-    }
-}
-
-  
-  .payout-btn {
-    background: #8000ff;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    margin-top: 20px;
-    cursor: pointer;
+    color: #aaa;
+    margin-bottom: 5px;
   }
   
-  .payout-btn:hover {
-    opacity: 0.8;
+  /* Light Mode Adjustments */
+  @media (prefers-color-scheme: light) {
+    p {
+      color: #444 !important;
+    }
   }
- /* Trust Badges Container */
-.trust-badges-container {
-    background-color: #f4f7fc; /* Light background */
-    padding: 40px;
-    text-align: center;
-    max-width: 100%;
-    transition: background 0.3s ease-in-out;
-}
-
-/* Title Styling */
-.trust-title {
-    font-size: 30px;
-    font-weight: bold;
-    color: #000;
-    margin-bottom: 20px;
-}
-
-/* Badges Wrapper */
-.trust-badges {
+  
+  /* Input Group */
+  .input-group {
     display: flex;
-    justify-content: center; /* Center items */
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-/* Individual Badge */
-.badge {
-    flex: 1;
-    min-width: 250px;
-    max-width: 300px;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-}
-
-.badge:hover {
-    transform: translateY(-5px);
-}
-
-/* Badge Icons */
-.badge i {
-    font-size: 40px;
-    color: #34a853; /* Green accent */
-    margin-bottom: 10px;
-}
-
-/* Badge Titles */
-.badge h3 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-/* Badge Text - Light Mode */
-.badge p {
-    font-size: 16px;
-    color: #222; /* Darker text for better readability */
-    line-height: 1.5;
-    transition: color 0.3s ease-in-out;
-}
-
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-    .trust-badges-container {
-        background-color: #0d021f; /* Dark background */
-    }
-
-    .trust-title {
-        color: #d3a3ff; /* Soft purple */
-    }
-
-    .badge {
-        background: #1a082f; /* Dark badge */
-        color: white;
-        box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.1);
-    }
-
-    .badge h3 {
-        color: #fff;
-    }
-
-    .badge p {
-        color: #ddd; /* Lighter text for dark mode */
-    }
-
-
-
-    .badge i {
-        color: #77dd77; /* Soft green */
-    }
-}
-
-/* FAQs Container */
-.faqs-container {
-    max-width: 100%;
-    padding: 20px;
-    background: #f4f7fc; /* Default light mode background */
-    color: #222; /* Ensures readability */
-    text-align: left;
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-/* FAQs Title */
-.faqs-container h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #6d3fc0; /* Softer purple */
-}
-
-/* FAQ Item */
-.faq-item {
-    background: rgba(0, 0, 0, 0.05);
-    padding: 15px;
+    align-items: center;
+    background: #11101f;
+    padding: 10px;
     border-radius: 8px;
     margin-bottom: 15px;
-    transition: background 0.3s ease-in-out;
-}
-
-.faq-item:hover {
-    background: rgba(0, 0, 0, 0.1);
-}
-
-/* FAQ Question */
-.faq-item h3 {
-    font-size: 1.3rem;
-    color: #5d2e80; /* Darker purple */
-}
-
-/* FAQ Answer */
-.faq-item p {
-    font-size: 1.1rem;
-    margin-top: 5px;
-    opacity: 0.9;
-    color: #444 ; /* Ensures readability */
-}
-
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-    .faqs-container {
-        background: #0d021f; /* Dark background */
-        color: #e0e0e0;
+  }
+  
+  /* Light Mode */
+  @media (prefers-color-scheme: light) {
+    .input-group {
+      background: #e3e4e8;
     }
-
-    .faqs-container h2 {
-        color: #caa0ff; /* Lighter purple */
+  }
+  
+  /* Input Fields */
+  .input-group input, .input-group select {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #b31f96;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  /* Light Mode */
+  @media (prefers-color-scheme: light) {
+    .input-group input, .input-group select {
+      color: #000;
     }
-
-    .faq-item {
-        background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* M-PESA Box */
+  .mpesa-box {
+    display: flex;
+    align-items: center;
+    background: #220837;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  /* Light Mode */
+  @media (prefers-color-scheme: light) {
+    .mpesa-box {
+      background: #d8e6ff;
     }
-
-    .faq-item:hover {
-        background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .mpesa-box img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 10px;
+  }
+  
+  .mpesa-box span {
+    flex: 1;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+  }
+  
+  /* Light Mode */
+  @media (prefers-color-scheme: light) {
+    .mpesa-box span {
+      color: #000;
     }
-
-    .faq-item h3 {
-        color: #d4aaff;
+  }
+  
+  /* Summary Section */
+  .summary {
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  /* Light Mode */
+  @media (prefers-color-scheme: light) {
+    .summary {
+      background: #f0f0f5;
     }
-
-    .faq-item p {
-        color: #ddd !important;
+  }
+  
+  /* Summary Text */
+  .summary p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+  }
+  
+  /* Continue Button */
+  .continue-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background: #a020f0;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  /* Light Mode */
+  @media (prefers-color-scheme: light) {
+    .continue-btn {
+      background: #6a11cb;
     }
-}
-
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .trust-badges {
-        flex-direction: column;
-        align-items: center;
+  }
+  
+  .continue-btn:hover {
+    background: #7e15b8;
+  }
+  
+  /* Error Message */
+  .error {
+    color: red !important;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  /* -------------------- Responsive Design -------------------- */
+  @media screen and (max-width: 1024px) {
+    .home {
+      flex-direction: column;
+      align-items: center;
     }
-
-    .badge {
-        width: 90%;
+    
+    .sidebar {
+      width: 100%;
+      text-align: center;
+      padding: 30px;
     }
-}
-
-/* Floating Effect */
-@keyframes floatAnimation {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .crypto-hero-container {
-        flex-direction: column;
-        text-align: center;
-        padding: 40px;
+  
+    .send-container {
+      width: 90%;
+      padding: 30px;
     }
-    .crypto-content {
-        max-width: 100%;
+  
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    .crypto-icons {
-        margin-top: 20px;
+    
+    .start-btn, .login-btn {
+      width: 100%;
+      max-width: 250px;
+      font-size: 14px;
     }
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideDown {
-    from { transform: translateY(-30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes popUp {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .content {
-        max-width: 90%;
-        padding: 20px;
+  }
+  
+  /* Small screens (Tablets & Phones) */
+  @media screen and (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      padding: 20px;
     }
-    h1 {
-        font-size: 1.9rem !important;
+    
+    .send-container {
+      width: 100%;
+      padding: 20px;
     }
-    p {
-        font-size: 1.1rem;
+  
+    .mpesa-box {
+      flex-direction: column;
+      align-items: flex-start;
     }
-    .get-started-btn {
-        padding: 12px 25px;
-        font-size: 1rem;
+  
+    .mpesa-box img {
+      margin-bottom: 5px;
     }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2rem;
+  
+    .input-group {
+      flex-direction: column;
+      align-items: flex-start;
     }
-    p {
-        font-size: 1.0rem !important;
+  
+    .continue-btn {
+      font-size: 14px;
+      padding: 10px;
     }
-    .get-started-btn {
-        padding: 10px 20px;
-        font-size: 0.9rem;
+  }
+  
+  
+  /* Mobile screens (Extra small devices) */
+  @media screen and (max-width: 480px) {
+    .sidebar {
+      padding: 15px;
     }
-}
+    
+    .sidebar h1 {
+      font-size: 22px;
+    }
+  
+    .send-container {
+      padding: 15px;
+    }
+  
+    .input-group input, .input-group select {
+      font-size: 14px;
+    }
+  
+    .continue-btn {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
