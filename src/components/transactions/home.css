@@ -163,7 +163,6 @@ p {
 /* Input Group */
 .input-group {
   display: flex;
-  align-items: center;
   background: #11101f;
   padding: 10px;
   border-radius: 8px;
