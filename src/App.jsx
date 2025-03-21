@@ -7,6 +7,7 @@ import Footer from "./components/layout/Footer";
 import Home from "./components/pages/Home/Home";
 import AboutUs from "./components/common/AboutUs";
 import Signup from "./components/auth/Signup";
+import RecipientDetails from "./components/transactions/RecipientDetails";
 import Login from "./components/auth/Login";
 import SendMoney from "./components/transactions/SendMoney";
 import Transactions from "./components/transactions/Transactions";
@@ -147,6 +148,14 @@ function AppRoutes({ isLoggedIn, setIsLoggedIn }) {
         element={
           <ProtectedRoute isLoggedIn={isLoggedIn}>
             <Notifications />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/recipient"
+        element={
+          <ProtectedRoute isLoggedIn={isLoggedIn}>
+            <RecipientDetails />
           </ProtectedRoute>
         }
       />

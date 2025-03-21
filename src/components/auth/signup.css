@@ -89,9 +89,10 @@ p {
   margin: 10px 0;
   text-align: left; /* Ensure alignment */
   display: flex;
-  flex-direction: column;
+  flex-direction: column !important;
   align-items: flex-start; /* Align everything to the left */
 }
+
 
 .input-group label {
   display: block;

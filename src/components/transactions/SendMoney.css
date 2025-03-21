@@ -30,7 +30,7 @@
     --button-bg: #4A3AFF;
     --button-text: white;
     --button-border: #4A3AFF;
-    --info-box-bg: #191328;
+    --info-box-bg: #130a28;
     --info-box-border: #414149;
     --label-color: #bbb;
     --value-color: white;
@@ -109,7 +109,7 @@ body {
   position: relative;
 }
 
-.progress-step.completed {
+.progress-step.active {
   background-color: var(--progress-completed);
 }
 
@@ -182,15 +182,17 @@ body {
   font-size: 14px;
   color: var(--exchange-info-color);
   text-align: left;
-  margin-bottom: 20px;
   border: 2px solid var(--info-box-border);
   border-radius: 8px;
+  padding: 5px;
 }
 
 .exchange-info p {
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
+  padding: 5px;
+
 }
 
 /* Buttons */

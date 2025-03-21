@@ -45,9 +45,13 @@ const SendMoney = () => {
             <div className="line"></div>
           </div>
           <div className="step-container">
-            <span className="step">3</span>
+            <span className="step active">3</span>
+            <div className="line"></div>
           </div>
-          <span className="step-text">Step 3 of 3</span>
+          <div className="step-container">
+            <span className="step">4</span>
+          </div>
+          <span className="step-text">Step 4 of 4</span>
         </div>
       </div>
 
@@ -56,16 +60,6 @@ const SendMoney = () => {
           <h3 className="section-title">Recipient Details</h3>
           <p>Enter the recipient mobile money information</p>
 
-          <div className="input-group">
-            <label htmlFor="phone-number"></label>
-            <input
-              type="text"
-              id="phone-number"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              placeholder="Enter recipient's phone number"
-            />
-          </div>
 
           <p className="btc-info">
             Send <strong>0.23 BTC</strong> to

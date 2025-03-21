@@ -76,7 +76,7 @@ const Signup = () => {
         <p>Enter your information to create an account</p>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <form onSubmit={register}>
-          <div className="input-group">
+          <div className="input-grou">
             <label>Full Name</label>
             <input
               type="text"
@@ -86,7 +86,7 @@ const Signup = () => {
               required
             />
           </div>
-          <div className="input-group">
+          <div className="input-grop">
             <label>Email</label>
             <input
               type="email"
@@ -96,7 +96,7 @@ const Signup = () => {
               required
             />
           </div>
-          <div className="input-group">
+          <div className="input-grop">
             <label>Password</label>
             <input
               type="password"
@@ -106,7 +106,7 @@ const Signup = () => {
               required
             />
           </div>
-          <div className="input-group">
+          <div className="input-grop">
             <label>Confirm Password</label>
             <input
               type="password"

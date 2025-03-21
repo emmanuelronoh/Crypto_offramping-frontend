@@ -105,7 +105,7 @@
 .input-group {
   margin-top: 15px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column !important;
 }
 
 .input-group label {
@@ -128,7 +128,6 @@
   border-color: #007bff;
 }
 
-
 /* Progress Bar */
 .progress {
   display: flex;
@@ -140,7 +139,7 @@
 }
 
 .step {
-  width: 30px !important;
+  width: 30px;
   height: 30px;
   border-radius: 50%;
   display: flex;
@@ -148,14 +147,47 @@
   align-items: center;
   font-size: 14px;
   font-weight: bold;
+  background-color: #007bff;
+  color: white;
   z-index: 1;
 }
 
 .line {
   width: 80px;
   height: 5px;
+  background-color: #ccc;
   margin: 0 5px;
 }
+
+/* Responsive Design - Reduce Sizes */
+@media (max-width: 768px) {
+  .step {
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+  }
+
+  .line {
+    width: 60px;
+    height: 4px;
+    margin: 0 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .step {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+
+  .line {
+    width: 40px;
+    height: 3px;
+    margin: 0 2px;
+  }
+}
+
 
 /* Card Styling */
 .card {
@@ -184,7 +216,7 @@
 }
 
 .address-box {
-  padding: 8px;
+  padding: 20px;
   border-radius: 5px;
   font-weight: bold;
   text-align: center;
@@ -192,6 +224,7 @@
   overflow-wrap: break-word;
   max-width: 100%;
   box-sizing: border-box;
+  background-color: #484f57;
 }
 
 .buttons {

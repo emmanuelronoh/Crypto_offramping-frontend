@@ -98,6 +98,13 @@
     color: #fff;
     border: none;
   }
+  .login-btn {
+    background: none;
+    color: #fff;
+    border: none;
+    border: 2px solid #a020f0;
+
+  }
   
   /* Receive Money Icons */
   .receive-icon {

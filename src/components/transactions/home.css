@@ -122,6 +122,7 @@
   flex-direction: column;
   justify-content: center;
   color: #fff;
+
 }
 
 /* Light Mode */
@@ -167,6 +168,7 @@ p {
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 15px;
+  flex-direction: row !important;
 }
 
 /* Light Mode */
@@ -184,6 +186,90 @@ p {
   color: #ffffff;
   font-size: 16px;
   outline: none;
+}
+
+
+.input-container {
+  display: flex;
+  background: #030c1c; /* Dark theme */
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid #444; /* Darker border */
+}
+
+:root {
+  --background-dark: #030c1c;
+  --border-dark: #444;
+  --text-dark: #ffffff;
+
+  --background-light: #ffffff;
+  --border-light: #ccc;
+  --text-light: #000000;
+}
+
+.input-group input,
+.input-group select {
+  flex: 1;
+  background: none;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  color: var(--text-dark);
+}
+
+/* Default to dark mode */
+.input-container,
+.input-group,
+.amount-input,
+.select-container,
+.currency-input {
+  background: var(--background-dark);
+  color: var(--text-dark);
+  border: 1px solid var(--border-dark);
+}
+
+.crypto-select,
+.currency-select {
+  background: transparent;
+  color: var(--text-dark);
+  border: none;
+  outline: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.select-container,
+.dropdown {
+  background: var(--background-dark);
+  border-left: 1px solid var(--border-dark);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+}
+
+/* Light Mode Styles */
+@media (prefers-color-scheme: light) {
+  .input-container,
+  .input-group,
+  .amount-input,
+  .select-container,
+  .currency-input {
+    background: var(--background-light);
+    color: var(--text-light);
+    border: 1px solid var(--border-light);
+  }
+
+  .crypto-select,
+  .currency-select {
+    color: var(--text-light);
+  }
+
+  .select-container,
+  .dropdown {
+    background: var(--background-light);
+    border-left: 1px solid var(--border-light);
+  }
 }
 
 /* Light Mode */
@@ -309,13 +395,12 @@ p {
   
   .start-btn, .login-btn {
     width: 100%;
-    max-width: 250px;
     font-size: 14px;
   }
 }
 
 /* Small screens (Tablets & Phones) */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 400px) {
   .sidebar {
     width: 100%;
     padding: 20px;
@@ -343,6 +428,99 @@ p {
   .continue-btn {
     font-size: 14px;
     padding: 10px;
+  }
+}
+.progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap; /* Prevent vertical stacking */
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  gap: 10px; /* Adds spacing between elements */
+}
+
+.step {
+  width: 40px;
+  height: 40px;
+  background: #ddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #333;
+  transition: all 0.3s ease-in-out;
+  font-size: 16px;
+}
+
+.active {
+  background: #4caf50;
+  color: white;
+}
+
+.line {
+  flex-grow: 1;
+  height: 4px;
+  background: #ddd;
+  transition: all 0.3s ease-in-out;
+}
+
+.active + .line {
+  background: #4caf50;
+}
+
+.step-info {
+  position: absolute;
+  bottom: -20px;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .progress-bar {
+    max-width: 90%;
+    gap: 8px;
+  }
+
+  .step {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .line {
+    height: 3px;
+  }
+
+  .step-info {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .progress-bar {
+    max-width: 100%;
+    gap: 5px;
+  }
+
+  .step {
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+  }
+
+  .line {
+    height: 2px;
+  }
+
+  .step-info {
+    font-size: 10px;
   }
 }
 

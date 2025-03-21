@@ -1,0 +1,262 @@
+/* Default (Light Mode) */
+.recipient-container {
+    background-color: #f5f5f5;
+    color: #0c0c0f;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Dark Mode */
+  @media (prefers-color-scheme: dark) {
+    .recipient-container {
+      background-color: #0d021f;
+      color: white;
+    }
+  
+    .subtitle, .step-info, .payment-details p, .input-field::placeholder {
+      color: #b3b3b3;
+    }
+  
+    .payment-details {
+      background-color: #130529;
+    }
+  
+    .input-field {
+      background-color: #242424;
+      border: 1px solid #333;
+      color: white !important;
+    }
+    body {
+      background-color: #0c0c0f;
+      color: white;
+  }
+
+  .payment-details {
+      background-color: #130529 !important;
+  }
+
+  .input-field {
+      background-color: #0d1520 !important;
+      border-color: #333 !important;
+  }
+
+  .step {
+      background-color: #333 !important;
+      color: white !important;
+  }
+
+  .step-info {
+      color: #b3b3b3 !important;
+  }
+
+  .line {
+      background-color: #666 !important;
+  }
+  }
+  
+  /* Title */
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Subtitle */
+  .subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  /* Progress Bar */
+  .progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .step {
+    background-color: #d1d1d1;
+    color: black;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .active {
+    background-color: #6d44ff;
+    color: white;
+  }
+  
+  .line {
+    width: 40px;
+    height: 3px;
+    background-color: #888;
+  }
+  
+  .step-info {
+    font-size: 12px;
+    margin-left: 10px;
+    color: #555;
+  }
+  
+  /* Payment Details */
+  .payment-details {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .payment-details h3 {
+    font-size: 18px;
+  }
+  
+  .payment-details p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  label {
+    display: block;
+    font-size: 14px;
+    margin: 10px 0 5px;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    background-color: #eaeaea;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: black;
+  }
+  
+  .input-field::placeholder {
+    color: #888;
+  }
+  
+  /* Buttons */
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .back-btn {
+    background-color: transparent;
+    border: 1px solid #6d44ff;
+    color: #6d44ff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .back-btn:hover {
+    background-color: #6d44ff;
+    color: white;
+  }
+  
+  .next-btn {
+    background-color: #6d44ff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-left: 200px;
+  }
+  
+  .next-btn:hover {
+    background-color: #5533cc;
+  }
+  
+  /* 🔹 RESPONSIVE DESIGN */
+  
+  /* Tablet Screens */
+  @media screen and (max-width: 768px) {
+    .recipient-container {
+      width: 95%;
+      padding: 20px;
+    }
+  
+    .title {
+      font-size: 22px;
+    }
+  
+    .subtitle {
+      font-size: 13px;
+    }
+  
+    .step {
+      width: 22px;
+      height: 22px;
+    }
+  
+    .line {
+      width: 30px;
+    }
+  
+    .buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .back-btn, .next-btn {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  
+  /* Mobile Screens */
+  @media screen and (max-width: 480px) {
+    .recipient-container {
+      padding: 15px;
+    }
+  
+    .title {
+      font-size: 20px;
+    }
+  
+    .subtitle {
+      font-size: 12px;
+    }
+  
+    .step {
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+    }
+  
+    .line {
+      width: 25px;
+    }
+  
+    .payment-details {
+      padding: 15px;
+    }
+  
+    .input-field {
+      padding: 8px;
+    }
+  
+    .back-btn, .next-btn {
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+  }
+  

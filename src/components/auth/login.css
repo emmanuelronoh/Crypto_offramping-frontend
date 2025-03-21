@@ -103,7 +103,6 @@ label {
 input {
   width: 100%;
   padding: 5px;
-  margin-top: 5px;
   background: var(--input-bg);
   border: 1px solid var(--input-border);
   border-radius: 5px;

@@ -22,9 +22,11 @@ const SendMoney = () => {
           <div className="progress-line active"></div>
           <div className="progress-step active">2</div>
           <div className="progress-line"></div>
-          <div className="progress-step">3</div>
+          <div className="progress-step active">3</div>
+          <div className="progress-line"></div>
+          <div className="progress-step">4</div>
         </div>
-        <span className="step-label">Step 2 of 3</span>
+        <span className="step-label">Step 3 of 4</span>
       </div>
 
       <div className="send-crypto-box">
@@ -43,6 +45,8 @@ const SendMoney = () => {
         </div>
 
         <div className="exchange-info">
+          <p><strong>Phone Number</strong> <span>+254-xyz-xyzx</span></p>
+          <p><strong>Network Provider</strong> <span>MNT</span></p>
           <p><strong>Exchange Rate</strong> <span>1 BTC = {exchangeRate} {currency}</span></p>
           <p><strong>Fee</strong> <span>1.6%</span></p>
           <p><strong>Transfer time</strong> <span>Within minutes</span></p>
