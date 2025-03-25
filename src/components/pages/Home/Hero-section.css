@@ -326,7 +326,6 @@
     
     .start-btn, .login-btn {
       width: 100%;
-      max-width: 250px;
       font-size: 14px;
     }
   }
