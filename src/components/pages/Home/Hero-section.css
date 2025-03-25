@@ -387,3 +387,66 @@
       padding: 10px;
     }
   }
+
+  /* Tablets (768px and below) */
+@media (max-width: 768px) {
+  .home {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .sidebar {
+      width: 100%;
+      padding: 30px;
+      text-align: center;
+  }
+
+  .send-container-1 {
+      width: 90%;
+      padding: 30px;
+  }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  .home {
+      padding: 10px;
+  }
+
+  .sidebar {
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+  }
+
+  .send-container-1 {
+      width: 100%;
+      padding: 20px;
+  }
+
+  .buttons-send {
+      flex-direction: column;
+  }
+
+  .start-btn, .login-btn-send {
+      width: 100%;
+      font-size: 14px;
+      padding: 12px;
+  }
+
+  .input-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .amount-input, .currency-input, .crypto-select, .currency-select {
+      width: 100%;
+      text-align: center;
+  }
+
+  .continue-btn {
+      width: 100%;
+      padding: 15px;
+      font-size: 16px;
+  }
+}
