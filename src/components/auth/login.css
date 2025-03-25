@@ -48,6 +48,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.login-container .main-content {
+  margin-top: 0 !important;
+}
+
 /* Login Box */
 .login-box {
   background-color: var(--login-box-bg);
@@ -56,6 +60,7 @@
   width: 320px;
   text-align: center;
   border: 2px solid var(--border-color);
+  margin-top: 0 !important;
 }
 
 /* Title & Subtitle */
