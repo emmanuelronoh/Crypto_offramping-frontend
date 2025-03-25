@@ -360,7 +360,9 @@ const Home = () => {
         <h1>Send Crypto, Receive <br /> Mobile Money</h1>
         <div className="buttons-send">
           <button className="start-btn">Start Sending →</button>
-          <button className="login-btn-send">Login</button>
+          <button className="login-btn-send" onClick={() => navigate("/login")}>
+      Login
+    </button>
         </div>
       </div>
 
