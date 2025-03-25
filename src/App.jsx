@@ -9,6 +9,8 @@ import AboutUs from "./components/common/AboutUs";
 import Signup from "./components/auth/Signup";
 import RecipientDetails from "./components/transactions/RecipientDetails";
 import Login from "./components/auth/Login";
+import ResetPassword from "./components/auth/ResetPassword";
+import ForgotPassword from "./components/auth/ForgotPassword";
 import SendMoney from "./components/transactions/SendMoney";
 import Transactions from "./components/transactions/Transactions";
 import Dashboard from "./components/pages/Dashboard/Dashboard";
@@ -68,6 +70,8 @@ function AppRoutes({ isLoggedIn, setIsLoggedIn }) {
       <Route path="/signup" element={<Signup />} />
       <Route path="/verify-otp" element={<OTPInput />} />
       <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password/:uidb64/:token" element={<ResetPassword />} />
 
 
       {/* Protected Routes (Only for Logged-In Users) */}
