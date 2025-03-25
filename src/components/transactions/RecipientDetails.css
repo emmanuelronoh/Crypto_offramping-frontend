@@ -11,6 +11,16 @@
     transition: all 0.3s ease-in-out;
   }
   
+  .error-text {
+    color: red !important;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .error-border {
+    border: 1px solid red;
+  }
+  
   /* Dark Mode */
   @media (prefers-color-scheme: dark) {
     .recipient-container {
@@ -178,8 +188,11 @@
     border: none;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    margin-left: 200px;
-  }
+    width: 100%; /* Make it responsive */
+    margin-left: 0; /* Remove fixed margin */
+    text-align: center;
+}
+
   
   .next-btn:hover {
     background-color: #5533cc;

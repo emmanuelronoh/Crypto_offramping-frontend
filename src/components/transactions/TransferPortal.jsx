@@ -18,29 +18,28 @@ const Home = () => {
 
 
   const handleContinue = () => {
-    if (!amount || !coin ) {
-      setError("Please enter an amount, and select a cryptocurrency.");
+    if (!amount || !coin) {
+      setError("Please enter an amount and select a cryptocurrency.");
       return;
     }
     if (parseFloat(amount) <= 0) {
       setError("Amount must be greater than zero.");
       return;
     }
-
-
+  
     setError("");
-
-    navigate("/send-money", {
-      state: {
-        amount,
-        currency,
-        exchangeRate: exchangeRates[currency],
-        recipientName,
-        coin,
-        receiveMethod
-      },
+  
+    navigate("/recipient", { 
+      state: { 
+        amount, 
+        currency, 
+        exchangeRate: exchangeRates[currency], // Ensure exchangeRate is correctly derived
+        recipientName, 
+        coin, 
+        receiveMethod 
+      } 
     });
-  };
+  };  
 
   const receiveMethodIcons = {
     "M-PESA": "/assets/mpesa-logo.png",
@@ -53,11 +52,10 @@ const Home = () => {
       {/* Sidebar Section */}
       <div className="sidebar">
         <h1>Send Crypto, Receive <br /> Mobile Money</h1>
-        <div className="buttons">
+        <div className="buttons-1">
           <button className="start-btn">Start Sending →</button>
         </div>
       </div>
-
       {/* Send Crypto Form */}
       <div className="send-container">
         <h2>Send Crypto</h2>
