@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./login.css";
 import logo from "/src/assets/logo.png";
 
+const BASE_URL = "https://backend-github-code.onrender.com";
 const Login = ({ setIsLoggedIn }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +18,7 @@ const Login = ({ setIsLoggedIn }) => {
     const token = Cookies.get("jwt");
     if (token) {
       axios
-        .get("http://localhost:8000/auth/validate-token/", {
+        .get(`${BASE_URL}/auth/validate-token/`, {
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true,
         })
@@ -38,7 +39,7 @@ const Login = ({ setIsLoggedIn }) => {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:8000/auth/login/",
+        `${BASE_URL}/auth/login/`,
         { email, password },
         { withCredentials: true }
       );

@@ -22,7 +22,7 @@ const ResetPassword = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:8000/auth/reset-password/", {
+      const response = await fetch("https://backend-github-code.onrender.com/auth/reset-password/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

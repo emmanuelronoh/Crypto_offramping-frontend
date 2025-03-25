@@ -18,7 +18,7 @@ const Profile = () => {
           return;
         }
 
-        const response = await axios.get("http://localhost:8000/auth/profile/", {
+        const response = await axios.get("https://backend-github-code.onrender.com/auth/profile/", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

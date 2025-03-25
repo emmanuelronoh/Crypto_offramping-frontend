@@ -43,7 +43,7 @@ const OTPVerification = () => {
     const otpCode = otp.join("");
     if (otpCode.length === 6) {
       try {
-        const response = await axios.post("http://localhost:8000/auth/verify-email/", {
+        const response = await axios.post("https://backend-github-code.onrender.com/auth/verify-email/", {
           email,
           otp_code: otpCode,
         });
@@ -65,7 +65,7 @@ const OTPVerification = () => {
   const handleResendOtp = async () => {
     setIsResending(true);
     try {
-      const response = await axios.post("http://localhost:8000/auth/resend-otp/", { email });
+      const response = await axios.post("https://backend-github-code.onrender.com/auth/resend-otp/", { email });
 
       if (response.data.success) {
         toast.success("OTP has been resent to your email.");

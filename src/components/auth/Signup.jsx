@@ -42,7 +42,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/auth/register/",
+        "https://backend-github-code.onrender.com/auth/register/",
         userData,
         { headers: { "Content-Type": "application/json" } }
       );
