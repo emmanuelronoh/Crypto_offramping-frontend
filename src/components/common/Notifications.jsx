@@ -41,7 +41,7 @@ const Notifications = () => {
 
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8000/api/users/${encodeURIComponent(email)}/notifications/`,
+          `https://backend-github-code.onrender.com/api/users/${encodeURIComponent(email)}/notifications/`,
           {
             headers: { Authorization: `Bearer ${token}` },
             withCredentials: true,
@@ -70,7 +70,7 @@ const Notifications = () => {
 
     try {
       await axios.post(
-        `http://127.0.0.1:8000/api/users/${encodeURIComponent(email)}/notifications/mark-all-read/`,
+        `https://backend-github-code.onrender.com/api/users/${encodeURIComponent(email)}/notifications/mark-all-read/`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

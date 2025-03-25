@@ -74,7 +74,7 @@ const ContactUs = () => {
     };
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/support-request/', {
+      const response = await fetch('https://backend-github-code.onrender.com/api/support-request/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -22,7 +22,7 @@ const Footer = () => {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/notifications/",
+        "https://backend-github-code.onrender.com/api/notifications/",
         { message: `New newsletter subscription: ${email}` }, // Custom notification
         {
           headers: {

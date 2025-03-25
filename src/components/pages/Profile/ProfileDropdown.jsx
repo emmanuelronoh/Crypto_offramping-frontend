@@ -12,7 +12,7 @@ const ProfileDropdown = ({ handleLogout }) => {
   useEffect(() => {
     const token = Cookies.get("jwt");
     if (token) {
-      fetch("http://127.0.0.1:8000/auth/profile/", {
+      fetch("https://backend-github-code.onrender.com/auth/profile/", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`, // ✅ Send token in headers
