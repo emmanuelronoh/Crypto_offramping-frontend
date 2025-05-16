@@ -1,451 +1,508 @@
-/* /* General Styling */
-.home {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    min-height: 100vh;
-    background: #0d021f;
-    color: #fff;
-    font-family: "Poppins", sans-serif;
-    padding: 20px;
-  }
-  
-  /* Light Mode */
-  @media (prefers-color-scheme: light) {
-    .home {
-      background: #ffffff;
-      color: #111;
-    }
-    
-    .sidebar {
-      background: #fff;
-      color: #222;
-    }
-  
-    .send-container {
-      background: #eaeaea;
-      color: #333;
-    }
-  
-    .input-group {
-      background: #ddd;
-    }
-  
-    .input-group input,
-    .input-group select {
-      color: #111;
-    }
-  
-    .mpesa-box {
-      background: #ccc;
-    }
-  
-    .continue-btn {
-      background: #6200ea;
-      color: white;
-    }
-  
-    .continue-btn:hover {
-      background: #45009d;
-    }
-  }
-  
-  /* Default (Dark Mode) */
-  .sidebar {
-    width: 40%;
-    padding: 50px;
-    background: #0d021f;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #fff;
-  }
-  
-  /* Light Mode */
-  @media (prefers-color-scheme: light) {
-    .sidebar {
-      background: #ffffff;
-      color: #000;
-    }
-  }
-  
-  /* Sidebar Heading */
-  .sidebar h1 {
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 1.3;
-  }
-  
-  
-  /* Buttons */
-  .buttons-send {
-    display: flex !important;
-    gap: 10px !important; /* Adds space between buttons */
-    margin-top: 20px !important;
-  }
-  
-  .start-btn {
-    padding: 10px; /* Adjust padding for a smaller size */
-    font-size: 14px; /* Reduce font size */
-    border-radius: 6px; /* Adjust border radius */
-    background-color: #6b70ca;
-  }
-  .login-btn-send {
-    background-color: none;
-  }
-  
-  
-  
-  /* Receive Money Icons */
-  .receive-icon {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    margin-right: 10px;
-  }
-  
-  .receive-method {
-    display: flex;
-    align-items: center;
-  }
-  
-/* Default (Dark Mode) */
-.send-container-1 {
-  width: 55%;
-  padding: 50px;
-  background: #12132a;
-  border-radius: 12px;
+/* ===== Base Styles & Variables ===== */
+:root {
+  --primary: #2563eb;       /* Vibrant blue */
+  --primary-dark: #1d4ed8;
+  --secondary: #7c3aed;     /* Purple accent */
+  --accent: #10b981;        /* Emerald green */
+  --dark: #1e293b;          /* Dark slate */
+  --light: #f8fafc;         /* Off-white */
+  --gray: #64748b;          /* Medium gray */
+  --red: #ef4444;           /* Error/Decrease */
+  --green: #10b981;         /* Success/Increase */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.5;
+  color: var(--dark);
+  background-color: var(--light);
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ===== Utility Classes ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ===== Hero Section ===== */
+.crypto-hero-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 1.5rem;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-radius: 0 0 1.5rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.crypto-hero-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 60%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0) 70%);
+  z-index: 0;
+}
+
+.crypto-content {
+  max-width: 600px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.crypto-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1.1;
+}
+
+.crypto-description {
+  font-size: 1.125rem;
+  color: var(--gray);
+  margin-bottom: 2rem;
+}
+
+.crypto-icons {
+  display: flex;
   justify-content: center;
-  color: #fff;
-  transition: background 0.3s ease, color 0.3s ease;
+  gap: 1rem;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 1;
 }
 
-/* Light Mode */
-@media (prefers-color-scheme: light) {
-  .send-container-1 {
-    background: #f9f9f9; /* Light background */
-    color: #12132a; /* Dark text for contrast */
+.crypto-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  transition: var(--transition);
+}
+
+.crypto-icon:hover {
+  transform: translateY(-5px) scale(1.1);
+}
+
+/* Floating animation for crypto icons */
+.solana {
+  animation: float 6s ease-in-out infinite;
+}
+
+.ethereum {
+  animation: float 5s ease-in-out infinite 0.5s;
+}
+
+.bitcoin {
+  animation: float 7s ease-in-out infinite 0.2s;
+}
+
+.tether {
+  animation: float 6.5s ease-in-out infinite 0.7s;
+}
+
+.usd-coin {
+  animation: float 5.5s ease-in-out infinite 0.3s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
   }
 }
 
-  
-  /* Light Mode */
-  @media (prefers-color-scheme: light) {
-    .send-container {
-      background: #f8f9fa;
-      color: #000;
-    }
-  }
-  
-  /* Headers */
-  h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: black;
-  }
-  
-  /* Dark Mode */
-  @media (prefers-color-scheme: dark) {
-    h2 {
-      color: white;
-    }
-  }
-  
-  
-  p {
-    font-size: 14px;
-    color: #aaa;
-    margin-bottom: 5px;
-  }
-  
-  /* Light Mode Adjustments */
-  @media (prefers-color-scheme: light) {
-    p {
-      color: #444 !important;
-    }
-  }
-  
-  /* Input Group */
-  .input-group {
-    display: flex;
-    align-items: center;
-    background: #11101f;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-  }
-  
-  /* Light Mode */
-  @media (prefers-color-scheme: light) {
-    .input-group {
-      background: #e3e4e8;
-    }
-  }
-  
-  /* Input Fields */
-  .input-group input, .input-group select {
-    flex: 1;
-    background: none;
-    border: none;
-    color: #b31f96;
-    font-size: 16px;
-    outline: none;
-  }
-  
-  /* Light Mode */
-  @media (prefers-color-scheme: light) {
-    .input-group input, .input-group select {
-      color: #000;
-    }
-  }
-  
-  /* M-PESA Box */
-  .mpesa-box {
-    display: flex;
-    align-items: center;
-    background: #220837;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-  }
-  
-  /* Light Mode */
-  @media (prefers-color-scheme: light) {
-    .mpesa-box {
-      background: #d8e6ff;
-    }
-  }
-  
-  .mpesa-box img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    margin-right: 10px;
-  }
-  
-  .mpesa-box span {
-    flex: 1;
-    font-size: 16px;
-    color: #fff;
-    font-weight: 500;
-  }
-  
-  /* Light Mode */
-  @media (prefers-color-scheme: light) {
-    .mpesa-box span {
-      color: #000;
-    }
-  }
-  
-  /* Summary Section */
-  .summary {
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 20px;
-  }
-  
-  /* Light Mode */
-  @media (prefers-color-scheme: light) {
-    .summary {
-      background: #f0f0f5;
-    }
-  }
-  
-  /* Summary Text */
-  .summary p {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-  }
+/* ===== Steps Section ===== */
+.steps-container {
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
 
-  .continue-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Centers text and icon */
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    background: #a020f0; /* Same purple shade */
-    border: none;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 20px;
-    font-weight: bold;
-    gap: 8px; /* Space between text and icon */
-  }
-  
-  .continue-btn i {
-    font-size: 18px; /* Adjust icon size */
-  }
-  
-  
-  /* Light Mode */
-  @media (prefers-color-scheme: light) {
-    .continue-btn {
-      background: #6a11cb;
-    }
-  }
-  
-  .continue-btn:hover {
-    background: #7e15b8;
-  }
-  
-  /* Error Message */
-  .error {
-    color: red !important;
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-  
-  /* -------------------- Responsive Design -------------------- */
-  @media screen and (max-width: 1024px) {
-    .home {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .sidebar {
-      width: 100%;
-      text-align: center;
-      padding: 30px;
-    }
-  
-    .send-container {
-      width: 90%;
-      padding: 30px;
-    }
-  
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .start-btn, .login-btn {
-      width: 100%;
-      font-size: 14px;
-    }
-  }
-  
-  /* Small screens (Tablets & Phones) */
-  @media screen and (max-width: 768px) {
-    .sidebar {
-      width: 100%;
-      padding: 20px;
-    }
-    
-    .send-container {
-      width: 100%;
-      padding: 20px;
-    }
-  
-    .mpesa-box {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .mpesa-box img {
-      margin-bottom: 5px;
-    }
-  
-    .input-group {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .continue-btn {
-      font-size: 14px;
-      padding: 10px;
-    }
-  }
-  
-  
-  /* Mobile screens (Extra small devices) */
-  @media screen and (max-width: 480px) {
-    .sidebar {
-      padding: 15px;
-    }
-    
-    .sidebar h1 {
-      font-size: 22px;
-    }
-  
-    .send-container {
-      padding: 15px;
-    }
-  
-    .input-group input, .input-group select {
-      font-size: 14px;
-    }
-  
-    .continue-btn {
-      font-size: 14px;
-      padding: 10px;
-    }
-  }
+.steps-container h2 {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+}
 
-  /* Tablets (768px and below) */
+.steps-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 2px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.steps h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.steps p {
+  color: var(--gray);
+}
+
+/* ===== Trade Section ===== */
+.trade-container {
+  padding: 4rem 1.5rem;
+  background-color: white;
+  border-radius: 1.5rem;
+  margin: 2rem auto;
+  box-shadow: var(--shadow-sm);
+  max-width: 1200px;
+}
+
+.trade-container h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.trade-container p {
+  text-align: center;
+  color: var(--gray);
+  margin-bottom: 2rem;
+}
+
+.coins-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.coin-card {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  border: 1px solid #e2e8f0;
+}
+
+.coin-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.coin-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
+}
+
+.coin-info h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.coin-info p {
+  text-align: left;
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--gray);
+}
+
+.trade-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+}
+
+/* ===== Payout Section ===== */
+.payout-container {
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.payout-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.payout-container p {
+  color: var(--gray);
+  margin-bottom: 3rem;
+}
+
+.payout-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.payout-card {
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  text-align: center;
+  border: 1px solid #e2e8f0;
+}
+
+.payout-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.payout-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.payout-info h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.payout-info p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--gray);
+}
+
+.payout-btn {
+  margin-top: 2rem;
+}
+
+/* ===== Security Section ===== */
+.security-container {
+  padding: 4rem 1.5rem;
+  color: white;
+  border-radius: 1.5rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+.security-container h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.security-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.security-card {
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem;
+  transition: var(--transition);
+}
+
+.security-card:hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.security-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.security-card p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===== Trust Badges ===== */
+.trust-badges-container {
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.trust-title {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.trust-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 2px;
+}
+
+.trust-badges {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.badge {
+  padding: 2rem 1.5rem;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.badge:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.badge i {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+}
+
+.badge h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.badge p {
+  color: var(--gray);
+}
+
+/* ===== FAQs ===== */
+.faqs-container {
+  padding: 4rem 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faqs-container h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.faq-item {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 1.5rem;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-item h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.faq-item p {
+  color: var(--gray);
+  padding-left: 1.75rem;
+}
+
+/* ===== Responsive Adjustments ===== */
 @media (max-width: 768px) {
-  .home {
-      flex-direction: column;
-      align-items: center;
+  .crypto-title {
+    font-size: 2rem;
   }
-
-  .sidebar {
-      width: 100%;
-      padding: 30px;
-      text-align: center;
+  
+  .crypto-description {
+    font-size: 1rem;
   }
-
-  .send-container-1 {
-      width: 90%;
-      padding: 30px;
+  
+  .steps {
+    grid-template-columns: 1fr;
+  }
+  
+  .coins-list {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
 
-/* Mobile (480px and below) */
 @media (max-width: 480px) {
-  .home {
-      padding: 10px;
+  .crypto-title {
+    font-size: 1.75rem;
   }
-
-  .sidebar {
-      width: 100%;
-      padding: 20px;
-      text-align: center;
+  
+  .crypto-icons {
+    flex-wrap: wrap;
   }
-
-  .send-container-1 {
-      width: 100%;
-      padding: 20px;
-  }
-
-  .buttons-send {
-      flex-direction: column;
-  }
-
-  .start-btn, .login-btn-send {
-      width: 100%;
-      font-size: 14px;
-      padding: 12px;
-  }
-
-  .input-container {
-      flex-direction: column;
-      align-items: center;
-  }
-
-  .amount-input, .currency-input, .crypto-select, .currency-select {
-      width: 100%;
-      text-align: center;
-  }
-
-  .continue-btn {
-      width: 100%;
-      padding: 15px;
-      font-size: 16px;
+  
+  .payout-list {
+    grid-template-columns: 1fr;
   }
 }
