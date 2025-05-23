@@ -26,6 +26,7 @@ A React-based application for seamless conversion of cryptocurrencies to local f
 ---
 
 ## 📁 Project Structure  
+```bash
 Crypto_offramping-frontend/
 ├── public/ # Static assets
 ├── src/
@@ -39,7 +40,7 @@ Crypto_offramping-frontend/
 ├── .gitignore
 ├── package.json
 └── config files (vite/tailwind)
-
+```
 
 ---
 
